@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>完美解决typora + hexo + github page个人网站的图片显示</title>
+      <link href="/2019/03/05/typora-hexo-github-page-images/"/>
+      <url>/2019/03/05/typora-hexo-github-page-images/</url>
+      
+        <content type="html"><![CDATA[<p>搭建及基本命令参考<a href="https://www.cnblogs.com/jackyroc/p/7681938.html" target="_blank" rel="noopener">github+hexo个人网站搭建</a></p><p>先说说为什么选取这三个作为组合</p><ol><li>三者完全免费，而且空间无限制，对于我这贫民可是有着巨大吸引力</li><li>typora编辑起来极其顺手且美观，GitHub提供免费服务器，hexo一键部署网页，大大简化开发流程</li></ol><p>但凡事总有些缺憾，当我把在typora上写好的博客导入CSDN时惊奇的发现图片资源无法显示，这可就让人纳闷咯，查阅其图片资源存储原理后，原来它是将图片放在一个专门的文件夹，然后在文章中通过url（图片所处的路径）来引用它。所以在本地编写博客时，图片路径全都是默认的本地绝对路径，导入CSDN当然找不到本地路径，自然也就无法加载图片咯。</p><p>同理，通过hexo将博客部署在GitHub上也是无法找到本地路径滴，接下来提供一种简单的解决方案~</p><hr><h2 id="1-hexo插件安装-一个配置修改"><a href="#1-hexo插件安装-一个配置修改" class="headerlink" title="1.hexo插件安装+一个配置修改"></a>1.hexo插件安装+一个配置修改</h2><ol><li>进入<code>_config.yml</code>，如下图所示，将<code>post_asset_folder</code>改为<code>true</code>即可。</li></ol><p><img src="/2019/03/05/typora-hexo-github-page-images/1551786219882.png" alt="1551786219882"></p><p>​    修改后当你在<code>hexo</code>目录下输入<code>hexo new 你要的文件名</code>时<code>hexo</code>将会自动生成一个<code>你要的文件名</code>文件夹，专门用来存放与<code>你要的文件名.md</code>相关的资源，比如输入<code>hexo new 本地图片测试</code>，结果如下</p><p><img src="/2019/03/05/typora-hexo-github-page-images/1551785757403.png" alt="1551785757403"></p><ol start="2"><li>在<code>hexo</code>目录下输入<code>npm install hexo-asset-image --save</code>即可。</li></ol><p>该命令安装了一个插件，在<code>hexo</code>将<code>.md</code>文件转换为<code>.html</code>文件时，插件将图片的路径修改为网页可得到的路径</p><h2 id="2-md文件的创建及保存路径"><a href="#2-md文件的创建及保存路径" class="headerlink" title="2..md文件的创建及保存路径"></a>2.<code>.md</code>文件的创建及保存路径</h2><ul><li>如果直接在<code>typora</code>上新建文件，那么即使您将其保存在了<code>hexo</code>下的<code>source/_post</code>下也是无济于事的，<code>hexo</code>生成的静态网页一如既往，不会加载图片</li></ul><ul><li>所以每次得在<code>hexo</code>目录下的<code>source/_post</code>下创建所需文件，然后再使用本地<code>typora</code>打开文件编辑，其余操作不变</li></ul><h2 id="3-typora图片存储路径修改"><a href="#3-typora图片存储路径修改" class="headerlink" title="3. typora图片存储路径修改"></a>3. typora图片存储路径修改</h2><p>​    </p><ol><li>打开typora编辑器，点击<code>文件</code>，<code>偏好设置</code>，将红框中的内容设置如下，<code>./${filename}</code>就是你创建的文件名，此时如果你直接粘贴一张图片到.md文件中，图片的路径一定是<code>当前文件名/图片名.png</code><img src="/2019/03/05/typora-hexo-github-page-images/1551777838795.png" alt="1551777838795"></li></ol><ol start="2"><li>因此只要你粘贴图片到文章中，那么它一定是存储在第二步创建文件时<code>hexo</code>自动生成的同名文件夹中，之后使用<code>hexo</code>生成静态网页时，资源会同时被加载</li></ol><hr><p>部署到GitHub Page，大功告成~</p><p><img src="/2019/03/05/typora-hexo-github-page-images/1551787437620.png" alt="1551787437620"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web应用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
