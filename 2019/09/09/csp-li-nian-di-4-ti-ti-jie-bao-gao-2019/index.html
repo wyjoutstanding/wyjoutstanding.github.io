@@ -423,14 +423,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        1k
+                        1.1k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        4 分
+                        5 分
                     </div>
                     
                 
@@ -451,71 +451,71 @@
 <h3 id="2-注意点"><a href="#2-注意点" class="headerlink" title="2  注意点"></a>2  注意点</h3><ul>
 <li>使用优先队列时，在相应结构体中通过重载<code>&lt;</code>来定义优先级时，注意参数需要用<code>const</code>修饰</li>
 </ul>
-<h3 id="3-AC代码"><a href="#3-AC代码" class="headerlink" title="3  AC代码"></a>3  AC代码</h3><h4 id="3-1-C-（prim优先队列优化）"><a href="#3-1-C-（prim优先队列优化）" class="headerlink" title="3.1  C++（prim优先队列优化）"></a>3.1  C++（prim优先队列优化）</h4><pre class="line-numbers language-c++"><code class="language-c++">/*
+<h3 id="3-AC代码"><a href="#3-AC代码" class="headerlink" title="3  AC代码"></a>3  AC代码</h3><h4 id="3-1-C-（prim优先队列优化）"><a href="#3-1-C-（prim优先队列优化）" class="headerlink" title="3.1  C++（prim优先队列优化）"></a>3.1  C++（prim优先队列优化）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-08 21:03:43
  * @LastEditTime: 2019-09-08 22:28:46
  * @Github: https://github.com/wyjoutstanding
- */
-#include <bits stdc++.h>
-using namespace std;
-const int MAXN = 50010, INF = 0x3fffffff;
-struct GNode {
-    int v, d;
-    GNode(int _v, int _d) : v(_v), d(_d) {}
-};
-struct Dist { // 距离，优先队列优化
-    int v, d;
-    Dist(int _v, int _d) : v(_v), d(_d) {}
-    friend bool operator < (const Dist& a, const Dist& b) {return a.d > b.d;} // 必须加const修饰
-};
-vector<gnode> adj[MAXN];
-int d[MAXN];
-bool vis[MAXN] = {false};
-int n, m, root;
-void prim(int root) {
-    int ans = -1; // 保存最大边
-    fill(d, d + MAXN, INF); // 初始化为极大值
-    d[root] = 0; // 根距离为0
-    priority_queue<dist> pq; // 优先队列
-    pq.push(Dist(root, 0));
-    for(int i = 0; i < n; i ++) { // n个点
-        int k, MIN = INF;
-        while(!pq.empty()) {
-            if(!vis[pq.top().v]) { // 必须先判断是否访问
-                k = pq.top().v;
-                MIN = pq.top().d;
-                pq.pop();
-                break;
-            }
-            else pq.pop();
-        }
-        vis[k] = true; // 访问k
-        ans = max(ans, MIN);
-        for(auto p : adj[k]) { // 更新相邻点
-            if(!vis[p.v] && d[p.v] > p.d) {
-                d[p.v] = p.d;
-                pq.push(Dist(p.v, p.d)); // 压入优先队列
-            }
-        }
-    }
-    printf("%d\n", ans);
-}
-void createGraph() {
-    scanf("%d %d %d", &n, &m, &root);
-    int u, v, d;
-    while(m --) {
-        scanf("%d %d %d", &u, &v, &d);
-        adj[u].push_back(GNode(v, d));
-        adj[v].push_back(GNode(u, d));
-    }
-}
-int main() {
-    createGraph();
-    prim(root);
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></dist></gnode></bits></code></pre>
+ */</span>
+<span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;bits/stdc++.h></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token keyword">int</span> MAXN <span class="token operator">=</span> <span class="token number">50010</span><span class="token punctuation">,</span> INF <span class="token operator">=</span> <span class="token number">0x3fffffff</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> GNode <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> v<span class="token punctuation">,</span> d<span class="token punctuation">;</span>
+    <span class="token function">GNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> _v<span class="token punctuation">,</span> <span class="token keyword">int</span> _d<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">v</span><span class="token punctuation">(</span>_v<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">d</span><span class="token punctuation">(</span>_d<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">struct</span> Dist <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 距离，优先队列优化</span>
+    <span class="token keyword">int</span> v<span class="token punctuation">,</span> d<span class="token punctuation">;</span>
+    <span class="token function">Dist</span><span class="token punctuation">(</span><span class="token keyword">int</span> _v<span class="token punctuation">,</span> <span class="token keyword">int</span> _d<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">v</span><span class="token punctuation">(</span>_v<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">d</span><span class="token punctuation">(</span>_d<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span><span class="token keyword">const</span> Dist<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> <span class="token keyword">const</span> Dist<span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> a<span class="token punctuation">.</span>d <span class="token operator">></span> b<span class="token punctuation">.</span>d<span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 必须加const修饰</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+vector<span class="token operator">&lt;</span>GNode<span class="token operator">></span> adj<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> d<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">bool</span> vis<span class="token punctuation">[</span>MAXN<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token boolean">false</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">int</span> n<span class="token punctuation">,</span> m<span class="token punctuation">,</span> root<span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">prim</span><span class="token punctuation">(</span><span class="token keyword">int</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> ans <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 保存最大边</span>
+    <span class="token function">fill</span><span class="token punctuation">(</span>d<span class="token punctuation">,</span> d <span class="token operator">+</span> MAXN<span class="token punctuation">,</span> INF<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 初始化为极大值</span>
+    d<span class="token punctuation">[</span>root<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 根距离为0</span>
+    priority_queue<span class="token operator">&lt;</span>Dist<span class="token operator">></span> pq<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 优先队列</span>
+    pq<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">Dist</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// n个点</span>
+        <span class="token keyword">int</span> k<span class="token punctuation">,</span> MIN <span class="token operator">=</span> INF<span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>pq<span class="token punctuation">.</span><span class="token function">empty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>vis<span class="token punctuation">[</span>pq<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>v<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 必须先判断是否访问</span>
+                k <span class="token operator">=</span> pq<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>v<span class="token punctuation">;</span>
+                MIN <span class="token operator">=</span> pq<span class="token punctuation">.</span><span class="token function">top</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>d<span class="token punctuation">;</span>
+                pq<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">else</span> pq<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        vis<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 访问k</span>
+        ans <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span> MIN<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> p <span class="token operator">:</span> adj<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 更新相邻点</span>
+            <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>vis<span class="token punctuation">[</span>p<span class="token punctuation">.</span>v<span class="token punctuation">]</span> <span class="token operator">&amp;&amp;</span> d<span class="token punctuation">[</span>p<span class="token punctuation">.</span>v<span class="token punctuation">]</span> <span class="token operator">></span> p<span class="token punctuation">.</span>d<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                d<span class="token punctuation">[</span>p<span class="token punctuation">.</span>v<span class="token punctuation">]</span> <span class="token operator">=</span> p<span class="token punctuation">.</span>d<span class="token punctuation">;</span>
+                pq<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token function">Dist</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>v<span class="token punctuation">,</span> p<span class="token punctuation">.</span>d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 压入优先队列</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">createGraph</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">,</span> <span class="token operator">&amp;</span>m<span class="token punctuation">,</span> <span class="token operator">&amp;</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> u<span class="token punctuation">,</span> v<span class="token punctuation">,</span> d<span class="token punctuation">;</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>m <span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">"%d %d %d"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>u<span class="token punctuation">,</span> <span class="token operator">&amp;</span>v<span class="token punctuation">,</span> <span class="token operator">&amp;</span>d<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        adj<span class="token punctuation">[</span>u<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">GNode</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        adj<span class="token punctuation">[</span>v<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span><span class="token function">GNode</span><span class="token punctuation">(</span>u<span class="token punctuation">,</span> d<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">createGraph</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">prim</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="3-2-C-（Kruskal优先队列优化）"><a href="#3-2-C-（Kruskal优先队列优化）" class="headerlink" title="3.2  C++（Kruskal优先队列优化）"></a>3.2  C++（Kruskal优先队列优化）</h4><pre class="line-numbers language-c++"><code class="language-c++">/*
  * @Author: wuyangjun
  * @Date: 2019-09-09 08:55:33
