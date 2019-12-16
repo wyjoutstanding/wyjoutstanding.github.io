@@ -4,23 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="智慧教学平台开发记录, wyjoutstanding">
-    <meta name="description" content="智慧教学平台开发记录
-增加lombok，减少重复代码
-热部署，提高效率
-遇到问题先看报错提示！！！
-
-功能点1、用户管理
-
- 登录
- 注册
- 个人信息绑定/修改
- 密码更改
-
-2、班级管理
-
- 教师创建班级（生成邀请码）
- 教师/学生查询已">
+    <meta name="keywords" content="testPost, wyjoutstanding">
+    <meta name="description" content="试一试#include&amp;lt;bits/stdc++.h&gt;
+using namespace std;
+int main() {
+  map&amp;lt;int, int&gt; mp;
+  mp.insert({1,10});
+  for (auto ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -28,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>智慧教学平台开发记录 | wyjoutstanding</title>
+    <title>testPost | wyjoutstanding</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -295,13 +285,13 @@
 
 
 
-<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
+<div class="bg-cover post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        智慧教学平台开发记录
+                        testPost
                     </div>
                 </div>
             </div>
@@ -393,12 +383,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/springboot/" target="_blank">
-                                <span class="chip bg-color">springboot</span>
-                            </a>
-                        
-                            <a href="/tags/spring/" target="_blank">
-                                <span class="chip bg-color">spring</span>
+                            <a href="/tags/Nothing/" target="_blank">
+                                <span class="chip bg-color">Nothing</span>
                             </a>
                         
                     </div>
@@ -409,8 +395,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                后端
+                            <a href="/categories/test/" class="post-category" target="_blank">
+                                test
                             </a>
                         
                     </div>
@@ -428,14 +414,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        570
+                        36
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        2 分
+                        1 分
                     </div>
                     
                 
@@ -451,84 +437,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="智慧教学平台开发记录"><a href="#智慧教学平台开发记录" class="headerlink" title="智慧教学平台开发记录"></a>智慧教学平台开发记录</h1><ul>
-<li>增加lombok，减少重复代码</li>
-<li>热部署，提高效率</li>
-<li>遇到问题先看报错提示！！！</li>
-</ul>
-<h2 id="功能点"><a href="#功能点" class="headerlink" title="功能点"></a>功能点</h2><p>1、用户管理</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked> 登录</li>
-<li style="list-style: none"><input type="checkbox" checked> 注册</li>
-<li style="list-style: none"><input type="checkbox" checked> 个人信息绑定/修改</li>
-<li style="list-style: none"><input type="checkbox" checked> 密码更改</li>
-</ul>
-<p>2、班级管理</p>
-<ul>
-<li style="list-style: none"><input type="checkbox" checked> 教师创建班级（生成邀请码）</li>
-<li style="list-style: none"><input type="checkbox" checked> 教师/学生查询已创建/加入的班级</li>
-<li style="list-style: none"><input type="checkbox" checked> 教师删除班级</li>
-<li style="list-style: none"><input type="checkbox" checked> 教师修改班级</li>
-<li style="list-style: none"><input type="checkbox" checked> 学生加入班级（通过邀请码）</li>
-<li style="list-style: none"><input type="checkbox" checked> 学生退出班级</li>
-</ul>
-<p>3、资源管理</p>
-<ul>
-<li style="list-style: none"><input type="checkbox"> 上传资源</li>
-</ul>
-<h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><h3 id="数据源配置"><a href="#数据源配置" class="headerlink" title="数据源配置"></a>数据源配置</h3><ul>
-<li>驱动版本：<code>com.mysql.cj.jdbc.Driver</code>–connector&gt;=6；否则用不带cj的</li>
-<li>时区：<a href="https://blog.csdn.net/superdangbo/article/details/78732700" target="_blank" rel="noopener">设置参考</a></li>
-</ul>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
+                <h1 id="试一试"><a href="#试一试" class="headerlink" title="试一试"></a>试一试</h1><pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
+using namespace std<span class="token punctuation">;</span>
 <span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  map<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token punctuation">,</span> <span class="token keyword">int</span><span class="token operator">></span> mp<span class="token punctuation">;</span>
+  mp<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">auto</span> _mp <span class="token punctuation">:</span> mp<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d %d\n"</span><span class="token punctuation">,</span> _mp<span class="token punctuation">.</span>first<span class="token punctuation">,</span> _mp<span class="token punctuation">.</span>second<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://github.com/wyjoutstanding/figure-bed/raw/master/blog/alipay.jpg" alt></p>
-<h3 id="数据表自动生成实体类（Model）"><a href="#数据表自动生成实体类（Model）" class="headerlink" title="数据表自动生成实体类（Model）"></a>数据表自动生成实体类（Model）</h3><p>在navicat设计好数据表，并在云主机上创建，可以使用idea<a href="https://blog.csdn.net/qq_34371461/article/details/80571281#commentBox" target="_blank" rel="noopener">直接生成实体类</a>（groovy脚本是个好东西）。如果没有设计好表，也可以写好实体类，然后用springboot自动生成表。</p>
-<p><img src="https://github.com/wyjoutstanding/figure-bed/raw/master/blog/wechat.png" alt></p>
-<p><img src="https://github.com/wyjoutstanding/figure-bed/raw/master/blog/IMG_20191216_134604.png" alt></p>
-<p>数据表主键需要设为自增<br><img src="https://github.com/wyjoutstanding/figure-bed/raw/master/blog-img/IMG_20190904_184142.jpg" alt></p>
-<p><img src="https://github.com/wyjoutstanding/figure-bed/raw/master/blog-img/IMG_20190904_184142.jpg" alt></p>
-<h3 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h3><p>继承JpaRepository接口，ID必须和实体的主键类型一致，<a href="https://docs.spring.io/spring-data/jpa/docs/2.2.2.RELEASE/reference/html/#jpa.java-config" target="_blank" rel="noopener">增删改查参考官网</a>，<a href="https://blog.csdn.net/ljk126wy/article/details/82819948" target="_blank" rel="noopener">讲的不错的系列博客</a></p>
-<h3 id="单元测试"><a href="#单元测试" class="headerlink" title="单元测试"></a>单元测试</h3><ul>
-<li><a href="https://blog.csdn.net/weixin_39800144/article/details/79241620" target="_blank" rel="noopener">Junit4配置</a></li>
-</ul>
-<h3 id="前后端交互"><a href="#前后端交互" class="headerlink" title="前后端交互"></a>前后端交互</h3><p><a href="https://blog.csdn.net/justry_deng/article/details/80972817" target="_blank" rel="noopener">参考</a></p>
-<ul>
-<li>请求格式、类型、编码格式</li>
-<li>axios</li>
-<li>get有params</li>
-<li>post有body</li>
-<li>后端@RequestBody将body字段映射到实体中，其中键值必须相同，没有的默认为空！！！</li>
-<li>@ResponseBody返回json格式</li>
-<li>后端写内部类来接受前端post请求时，必须写成static，否则无法构造</li>
-</ul>
-<h3 id="VUE数据传递"><a href="#VUE数据传递" class="headerlink" title="VUE数据传递"></a>VUE数据传递</h3><ul>
-<li>全局变量：<code>sessionStorage</code>可看做一个结构体，直接用就行，无需添加<code>this</code>，如<code>sessionStorage.id</code></li>
-<li>局部变量咋创建？和java一样传递引用</li>
-<li>页面间传递变量：<code>this.$router.push({path:&#39;&#39;,query:{key:value}})</code>，路由传递</li>
-<li>密码修改时，函数名和函数顺序有关系？？test可以，handlerPassword放在后面却不行？？</li>
-</ul>
-<h3 id="ElementUI布局"><a href="#ElementUI布局" class="headerlink" title="ElementUI布局"></a>ElementUI布局</h3><ul>
-<li>响应式布局，一行3个，循环渲染，css写在循环渲染中</li>
-</ul>
-<pre class="line-numbers language-vue"><code class="language-vue"><span v-for="o in 10" :key="o" class="col-md-4"> // 循环10次，每行3个卡片
-    <el-card>12</el-card> // 卡片
-</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h3><ul>
-<li>href/router-link</li>
-<li><code>this.$router.push({path:&#39;/dest&#39;})</code></li>
-<li><code>@click=actionName</code>：用监听事件处理；或者<code>@click=&quot;$router.push({path:&#39;/Classes&#39;})&quot;</code></li>
-</ul>
-<h3 id="页面数据更新"><a href="#页面数据更新" class="headerlink" title="页面数据更新"></a>页面数据更新</h3><ul>
-<li><p>想调用自己写的<code>methods</code>，必须用<code>this.函数名</code>来调用</p>
-</li>
-<li><p><a href="https://segmentfault.com/a/1190000017007631" target="_blank" rel="noopener">刷新当前页面reload</a></p>
-</li>
-</ul>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr>
@@ -669,7 +588,7 @@
                     </span>
                     <a href="http://wyjoutstanding.github.io" class="b-link-green">wyjoutstanding</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/12/16/智慧教学平台开发记录/" class="b-link-green">智慧教学平台开发记录</a>
+                    <a href="/2019/12/16/testPost/" class="b-link-green">testPost</a>
                 </p>
             </div>
         </div>
@@ -692,8 +611,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
                 <a href="/2019/12/16/智慧教学平台开发记录/">
                     <div class="card-image">
@@ -722,9 +640,9 @@
  教师创建班级（生成邀请码）
  教师/学生查询已</div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-16
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -737,7 +655,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -760,32 +677,35 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/12/16/testPost/">
+                <a href="/2019/03/05/typora-hexo-github-page-images/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="testPost">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="完美解决typora + hexo + github page个人网站的图片显示">
                         
-                        <span class="card-title">testPost</span>
+                        <span class="card-title">完美解决typora + hexo + github page个人网站的图片显示</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
-                    <div class="summary">试一试#include&lt;bits/stdc++.h>
-using namespace std;
-int main() {
-  map&lt;int, int> mp;
-  mp.insert({1,10});
-  for (auto </div>
+                    <div class="summary">搭建及基本命令参考github+hexo个人网站搭建
+先说说为什么选取这三个作为组合
+
+三者完全免费，而且空间无限制，对于我这贫民可是有着巨大吸引力
+typora编辑起来极其顺手且美观，GitHub提供免费服务器，hexo一键部署网页，大大</div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-16
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-05
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/test/" class="post-category" target="_blank">
-                                    test
+                            <a href="/categories/前端/" class="post-category" target="_blank">
+                                    前端
+                                </a>
+                            
+                            <a href="/categories/前端/web页面/" class="post-category" target="_blank">
+                                    web页面
                                 </a>
                             
                             
@@ -795,8 +715,12 @@ int main() {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Nothing/" target="_blank">
-                        <span class="chip bg-color">Nothing</span>
+                    <a href="/tags/web应用/" target="_blank">
+                        <span class="chip bg-color">web应用</span>
+                    </a>
+                    
+                    <a href="/tags/博客搭建/" target="_blank">
+                        <span class="chip bg-color">博客搭建</span>
                     </a>
                     
                 </div>
