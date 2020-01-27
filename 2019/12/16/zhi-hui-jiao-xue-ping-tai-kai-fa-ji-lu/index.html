@@ -444,7 +444,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    577
+                    610
                 </div>
                 
 
@@ -496,11 +496,7 @@
 <li>驱动版本：<code>com.mysql.cj.jdbc.Driver</code>—connector&gt;=6；否则用不带cj的</li>
 <li>时区：<a href="https://blog.csdn.net/superdangbo/article/details/78732700" target="_blank" rel="noopener">设置参考</a></li>
 </ul>
-<pre class="line-numbers language-lang-c"><code class="language-lang-c">#include <stdio.h>
-int main() {
-    return 0;
-}
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></stdio.h></code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">true<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="数据表自动生成实体类（Model）"><a href="#数据表自动生成实体类（Model）" class="headerlink" title="数据表自动生成实体类（Model）"></a>数据表自动生成实体类（Model）</h3><p>在navicat设计好数据表，并在云主机上创建，可以使用idea<a href="https://blog.csdn.net/qq_34371461/article/details/80571281#commentBox" target="_blank" rel="noopener">直接生成实体类</a>（groovy脚本是个好东西）。如果没有设计好表，也可以写好实体类，然后用springboot自动生成表。</p>
 <p>数据表主键需要设为自增</p>
 <h3 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h3><p>继承JpaRepository接口，ID必须和实体的主键类型一致，<a href="https://docs.spring.io/spring-data/jpa/docs/2.2.2.RELEASE/reference/html/#jpa.java-config" target="_blank" rel="noopener">增删改查参考官网</a>，<a href="https://blog.csdn.net/ljk126wy/article/details/82819948" target="_blank" rel="noopener">讲的不错的系列博客</a></p>
@@ -526,10 +522,7 @@ int main() {
 <h3 id="ElementUI布局"><a href="#ElementUI布局" class="headerlink" title="ElementUI布局"></a>ElementUI布局</h3><ul>
 <li>响应式布局，一行3个，循环渲染，css写在循环渲染中</li>
 </ul>
-<pre class="line-numbers language-lang-html"><code class="language-lang-html"><span v-for="o in 10" :key="o" class="col-md-4"> // 循环10次，每行3个卡片
-    <el-card>12</el-card> // 卡片
-</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">v-for</span>=<span class="string">"o in 10"</span> <span class="attr">:key</span>=<span class="string">"o"</span> <span class="attr">class</span>=<span class="string">"col-md-4"</span>&gt;</span> // 循环10次，每行3个卡片</span><br><span class="line">    <span class="tag">&lt;<span class="name">el-card</span>&gt;</span>12<span class="tag">&lt;/<span class="name">el-card</span>&gt;</span> // 卡片</span><br><span class="line"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h3><ul>
 <li>href/router-link</li>
 <li><code>this.$router.push({path:&#39;/dest&#39;})</code></li>
@@ -1038,7 +1031,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">28.2k</span>&nbsp;字
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">37.9k</span>&nbsp;字
             
             
             
