@@ -1252,7 +1252,6 @@ int main() {
 两边取对数：t=lg(1-2^{-(M+1)})+Elg2=lgA+B\\
 B=int(t)\\
 A=10^{t-B}</script><p>其中M,E分别表示尾数和指数的位数，且AeB是<strong>科学计数法</strong>形式，即1&lt;A&lt;10，0&lt;lgA&lt;1，是小数部分，B为整数部分。</p>
-<p>$(1-2^{-(M+1)})<em>2^{2^E-1}=A</em>10^B$</p>
 <h3 id="AC代码（C-11，打表-对数降维-公式推导-精度选择）"><a href="#AC代码（C-11，打表-对数降维-公式推导-精度选择）" class="headerlink" title="AC代码（C++11，打表+对数降维+公式推导+精度选择）"></a>AC代码（C++11，打表+对数降维+公式推导+精度选择）</h3><pre class="line-numbers language-lang-cpp"><code class="language-lang-cpp">#include<bits stdc++.h>
 using namespace std;
 #define epison 1e-5 // 精度设置,1e-6也行
