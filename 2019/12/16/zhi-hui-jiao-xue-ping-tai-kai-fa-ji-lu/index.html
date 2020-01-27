@@ -444,7 +444,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    591
+                    577
                 </div>
                 
 
@@ -474,33 +474,33 @@
 </ul>
 <h2 id="功能点"><a href="#功能点" class="headerlink" title="功能点"></a>功能点</h2><p>1、用户管理</p>
 <ul>
-<li style="list-style: none"><input type="checkbox" checked> 登录</li>
-<li style="list-style: none"><input type="checkbox" checked> 注册</li>
-<li style="list-style: none"><input type="checkbox" checked> 个人信息绑定/修改</li>
-<li style="list-style: none"><input type="checkbox" checked> 密码更改</li>
+<li>[x] 登录</li>
+<li>[x] 注册</li>
+<li>[x] 个人信息绑定/修改</li>
+<li>[x] 密码更改</li>
 </ul>
 <p>2、班级管理</p>
 <ul>
-<li style="list-style: none"><input type="checkbox" checked> 教师创建班级（生成邀请码）</li>
-<li style="list-style: none"><input type="checkbox" checked> 教师/学生查询已创建/加入的班级</li>
-<li style="list-style: none"><input type="checkbox" checked> 教师删除班级</li>
-<li style="list-style: none"><input type="checkbox" checked> 教师修改班级</li>
-<li style="list-style: none"><input type="checkbox" checked> 学生加入班级（通过邀请码）</li>
-<li style="list-style: none"><input type="checkbox" checked> 学生退出班级</li>
+<li>[x] 教师创建班级（生成邀请码）</li>
+<li>[x] 教师/学生查询已创建/加入的班级</li>
+<li>[x] 教师删除班级</li>
+<li>[x] 教师修改班级</li>
+<li>[x] 学生加入班级（通过邀请码）</li>
+<li>[x] 学生退出班级</li>
 </ul>
 <p>3、资源管理</p>
 <ul>
-<li style="list-style: none"><input type="checkbox"> 上传资源</li>
+<li>[ ] 上传资源</li>
 </ul>
 <h2 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h2><h3 id="数据源配置"><a href="#数据源配置" class="headerlink" title="数据源配置"></a>数据源配置</h3><ul>
-<li>驱动版本：<code>com.mysql.cj.jdbc.Driver</code>–connector&gt;=6；否则用不带cj的</li>
+<li>驱动版本：<code>com.mysql.cj.jdbc.Driver</code>—connector&gt;=6；否则用不带cj的</li>
 <li>时区：<a href="https://blog.csdn.net/superdangbo/article/details/78732700" target="_blank" rel="noopener">设置参考</a></li>
 </ul>
-<pre class="line-numbers language-c"><code class="language-c"><span class="token macro property">#<span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h></span></span>
-<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-lang-c"><code class="language-lang-c">#include <stdio.h>
+int main() {
+    return 0;
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></stdio.h></code></pre>
 <h3 id="数据表自动生成实体类（Model）"><a href="#数据表自动生成实体类（Model）" class="headerlink" title="数据表自动生成实体类（Model）"></a>数据表自动生成实体类（Model）</h3><p>在navicat设计好数据表，并在云主机上创建，可以使用idea<a href="https://blog.csdn.net/qq_34371461/article/details/80571281#commentBox" target="_blank" rel="noopener">直接生成实体类</a>（groovy脚本是个好东西）。如果没有设计好表，也可以写好实体类，然后用springboot自动生成表。</p>
 <p>数据表主键需要设为自增</p>
 <h3 id="DAO"><a href="#DAO" class="headerlink" title="DAO"></a>DAO</h3><p>继承JpaRepository接口，ID必须和实体的主键类型一致，<a href="https://docs.spring.io/spring-data/jpa/docs/2.2.2.RELEASE/reference/html/#jpa.java-config" target="_blank" rel="noopener">增删改查参考官网</a>，<a href="https://blog.csdn.net/ljk126wy/article/details/82819948" target="_blank" rel="noopener">讲的不错的系列博客</a></p>
@@ -526,9 +526,9 @@
 <h3 id="ElementUI布局"><a href="#ElementUI布局" class="headerlink" title="ElementUI布局"></a>ElementUI布局</h3><ul>
 <li>响应式布局，一行3个，循环渲染，css写在循环渲染中</li>
 </ul>
-<pre class="line-numbers language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>o in 10<span class="token punctuation">"</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>o<span class="token punctuation">"</span></span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-md-4<span class="token punctuation">"</span></span><span class="token punctuation">></span></span> // 循环10次，每行3个卡片
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-card</span><span class="token punctuation">></span></span>12<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-card</span><span class="token punctuation">></span></span> // 卡片
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+<pre class="line-numbers language-lang-html"><code class="language-lang-html"><span v-for="o in 10" :key="o" class="col-md-4"> // 循环10次，每行3个卡片
+    <el-card>12</el-card> // 卡片
+</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h3 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h3><ul>
 <li>href/router-link</li>
@@ -1038,7 +1038,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">45.8k</span>&nbsp;字
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">28.2k</span>&nbsp;字
             
             
             
