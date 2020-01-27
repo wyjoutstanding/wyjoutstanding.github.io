@@ -1314,6 +1314,7 @@ string a<span class="token punctuation">,</span> b<span class="token punctuation
 </ul>
 <p>$$<br>原式：(1-2^{-(M+1)})<em>2^{2^E-1}=A</em>10^B\<br>两边取对数：t=lg(1-2^{-(M+1)})+Elg2=lgA+B\<br>B=int(t)\<br>A=10^{t-B}<br>$$</p>
 <p>其中M,E分别表示尾数和指数的位数，且AeB是<strong>科学计数法</strong>形式，即1&lt;A&lt;10，0&lt;lgA&lt;1，是小数部分，B为整数部分。</p>
+<p>$(1-2^{-(M+1)})<em>2^{2^E-1}=A</em>10^B$</p>
 <h3 id="AC代码（C-11，打表-对数降维-公式推导-精度选择）"><a href="#AC代码（C-11，打表-对数降维-公式推导-精度选择）" class="headerlink" title="AC代码（C++11，打表+对数降维+公式推导+精度选择）"></a>AC代码（C++11，打表+对数降维+公式推导+精度选择）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token macro property">#<span class="token directive keyword">include</span><span class="token string">&lt;bits/stdc++.h></span></span>
 <span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
 <span class="token macro property">#<span class="token directive keyword">define</span> epison 1e-5 </span><span class="token comment" spellcheck="true">// 精度设置,1e-6也行</span>
@@ -1850,7 +1851,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             <br>
             
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">45.7k</span>&nbsp;字
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">45.8k</span>&nbsp;字
             
             
             
