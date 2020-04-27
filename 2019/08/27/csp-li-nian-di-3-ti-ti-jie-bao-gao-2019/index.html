@@ -1,473 +1,424 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-
-
-<head><meta name="generator" content="Hexo 3.8.0">
-    <meta charset="utf-8">
-    <meta name="keywords" content="CSP历年第3题题解报告-2019, wyjoutstanding">
-    <meta name="description" content="对csp历年第3题进行详细分析，最后总结归纳出相应解题技巧">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>CSP历年第3题题解报告-2019 | wyjoutstanding</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://volantis.js.org/#2.6.5'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
     
-    <script src="/libs/jquery/jquery.min.js"></script>
-    
-<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
+  <!-- 页面元数据 -->
+  
+    <title>CSP历年第3题题解报告-2019 - wyjoutstanding</title>
+  
+    <meta name="keywords" content="CSP">
+  
+  
+
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  <!-- import link -->
+  
+
+  
+    
+      
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.18.1/styles/solarized-light.css">
+
+    
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 <body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper head-container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">wyjoutstanding</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
   
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>首页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">wyjoutstanding</div>
-        <div class="logo-desc">
-            
-            认真帅气的CSer
-            
-        </div>
-    </div>
-
-    
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			首页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
-		</a>
-          
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
-    </ul>
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
 </div>
-
-        </div>
-
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank" data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewbox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
-    </svg>
-</a>
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
         
-    </nav>
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+          
+            VOLANTIS <b><sup style='color:#3AA757'>2.6.5</sup></b>
+          
+        </a>
+      
 
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
 </header>
 
+<script>setLoadingBarProgress(40);</script>
+
+
+
+  <div class="l_body nocover">
+    <div class='body-wrapper'>
+      
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
     
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/">
+      CSP历年第3题题解报告-2019
+    </a>
+  </h1>
 
 
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">CSP历年第3题题解报告-2019</h1>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://xaoxuu.com" target="_blank" rel="nofollow noopener">
+    <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/avatar/avatar.png">
+    <p>Mr. X</p>
+  </a>
 </div>
 
-
-
-
-<main class="post-container content">
-
-    
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
-
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        margin: 35px 0 15px 0;
-        padding-left: 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        height: calc(100vh - 250px);
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #toc-content .is-active-link::before {
-        background-color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                    <div class="article-tag">
-                        
-                            <a href="/tags/CSP/">
-                                <span class="chip bg-color">CSP</span>
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Algorithm/" class="post-category">
-                                Algorithm
-                            </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-08-27
-                </div>
-                
-
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2019-12-16
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    20.2k
-                </div>
-                
-
-                
-                <div class="info-break-policy">
-                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    90 分
-                </div>
-                
-				
-                
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
-            </div>
             
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/Algorithm/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>Algorithm</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2019年8月27日</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
         </div>
-        <hr class="clearfix">
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h1 id="CSP历年第3题题解报告"><a href="#CSP历年第3题题解报告" class="headerlink" title="CSP历年第3题题解报告"></a>CSP历年第3题题解报告</h1><h3 id="作者：wuyangjun"><a href="#作者：wuyangjun" class="headerlink" title="作者：wuyangjun"></a>作者：wuyangjun</h3><h3 id="时间：2019-8-27"><a href="#时间：2019-8-27" class="headerlink" title="时间：2019/8/27~"></a>时间：2019/8/27~</h3><h3 id="主题：大模拟"><a href="#主题：大模拟" class="headerlink" title="主题：大模拟"></a>主题：大模拟</h3><hr>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <h1 id="CSP历年第3题题解报告"><a href="#CSP历年第3题题解报告" class="headerlink" title="CSP历年第3题题解报告"></a>CSP历年第3题题解报告</h1><h3 id="作者：wuyangjun"><a href="#作者：wuyangjun" class="headerlink" title="作者：wuyangjun"></a>作者：wuyangjun</h3><h3 id="时间：2019-8-27"><a href="#时间：2019-8-27" class="headerlink" title="时间：2019/8/27~"></a>时间：2019/8/27~</h3><h3 id="主题：大模拟"><a href="#主题：大模拟" class="headerlink" title="主题：大模拟"></a>主题：大模拟</h3><hr>
 <h2 id="201909-3-字符画"><a href="#201909-3-字符画" class="headerlink" title="201909-3 字符画"></a><a href="http://118.190.20.162/view.page?gpid=T92" target="_blank" rel="noopener">201909-3 字符画</a></h2><h3 id="1-思路分析"><a href="#1-思路分析" class="headerlink" title="1 思路分析"></a>1 思路分析</h3><p>本质是二维数组<strong>分块</strong>遍历，辅之以字符串处理与进制转换，最后根据题目要求输出相应序列即可。数据结构如下：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> pixel <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 像素点</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> pixel <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 像素点</span>
     <span class="token keyword">int</span> r<span class="token punctuation">,</span> g<span class="token punctuation">,</span> b<span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span>pixel<span class="token operator">>></span> img<span class="token punctuation">,</span> imgavr<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 原图像；小块平均值</span></code></pre>
+vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span>pixel<span class="token operator">>></span> img<span class="token punctuation">,</span> imgavr<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 原图像；小块平均值</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 <p>核心处理步骤如下：</p>
 <ol>
 <li><strong>字符串处理</strong></li>
@@ -491,7 +442,7 @@ vector<span class="token operator">&lt;</span>vector<span class="token operator"
 <li><strong>主控输出逻辑</strong></li>
 </ol>
 <p>注意需要<strong>打印重置序列</strong>的两个地方！！！以下是伪代码描述：</p>
-<pre class=" language-pseudocode"><code class="language-pseudocode">pre表示上一次处理的小块的rgb，cur表示即将处理的小块的rgb，defaultColor={0,0,0}表示默认背景色（黑）
+<pre class="line-numbers language-pseudocode"><code class="language-pseudocode">pre表示上一次处理的小块的rgb，cur表示即将处理的小块的rgb，defaultColor={0,0,0}表示默认背景色（黑）
 pre = defaultColor // 初始化为默认背景色（黑）
 for (对于每一行的小块) {
     for (对于一行内的每个小块) {
@@ -505,7 +456,7 @@ for (对于每一行的小块) {
     if (pre != defaultColor) 打印重置序列！！！
     pre = defaultColor
     输出换行
-}</code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-注意点"><a href="#2-注意点" class="headerlink" title="2 注意点"></a>2 注意点</h3><ul>
 <li><strong>（m,n)</strong>表示图片<strong>（宽，高）==（列，行）</strong>，注意别把它误当成(行，列)。（p,q）同理。</li>
 <li>转义序列中<code>R G B</code>均采用<strong>十进制</strong>表示，如<code>(255,255,255)</code>。<ul>
@@ -522,7 +473,7 @@ for (对于每一行的小块) {
 <li>本题仅用到背景色，与前景色无关（最佳迷惑行为）</li>
 </ul>
 <h3 id="3-测试用例"><a href="#3-测试用例" class="headerlink" title="3 测试用例"></a>3 测试用例</h3><p>主要针对<strong>注意点</strong>处设计3个<strong>具由代表性</strong>的测试用例，题目给出的样例不再重复</p>
-<pre class=" language-c"><code class="language-c">输入<span class="token number">1</span>：<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
+<pre class="line-numbers language-c"><code class="language-c">输入<span class="token number">1</span>：<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
 <span class="token number">2</span> <span class="token number">3</span>
 <span class="token number">2</span> <span class="token number">1</span>
 #<span class="token number">101010</span>
@@ -552,8 +503,8 @@ for (对于每一行的小块) {
 #<span class="token number">000000</span>
 #<span class="token number">111</span>
 输出<span class="token number">3</span>：
-\x1B\x5B\x34\x38\x3B\x32\x3B\x38\x3B\x38\x3B\x38\x6D\x20\x1B\x5B\x30\x6D\x0A\x1B\x5B\x34\x38\x3B\x32\x3B\x38\x3B\x38\x3B\x38\x6D\x20\x1B\x5B\x30\x6D\x0A</code></pre>
-<h3 id="4-C-（字符串处理-进制转换-二维数组分块遍历）"><a href="#4-C-（字符串处理-进制转换-二维数组分块遍历）" class="headerlink" title="4 C++（字符串处理+进制转换+二维数组分块遍历）"></a>4 C++（字符串处理+进制转换+二维数组分块遍历）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+\x1B\x5B\x34\x38\x3B\x32\x3B\x38\x3B\x38\x3B\x38\x6D\x20\x1B\x5B\x30\x6D\x0A\x1B\x5B\x34\x38\x3B\x32\x3B\x38\x3B\x38\x3B\x38\x6D\x20\x1B\x5B\x30\x6D\x0A<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-C-（字符串处理-进制转换-二维数组分块遍历）"><a href="#4-C-（字符串处理-进制转换-二维数组分块遍历）" class="headerlink" title="4 C++（字符串处理+进制转换+二维数组分块遍历）"></a>4 C++（字符串处理+进制转换+二维数组分块遍历）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun 
  * @Create time: 2019-12-15 01:04:39 
  * @Last Modified time: 2019-12-15 01:04:39 
@@ -654,7 +605,7 @@ string backColor <span class="token operator">=</span> <span class="token string
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\\x0A"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 换行</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201903-3-损坏的RAID5"><a href="#201903-3-损坏的RAID5" class="headerlink" title="201903-3 损坏的RAID5"></a><a href="http://118.190.20.162/view.page?gpid=T87" target="_blank" rel="noopener">201903-3 损坏的RAID5</a></h2><h3 id="思路分析"><a href="#思路分析" class="headerlink" title="思路分析"></a>思路分析</h3><p>​        这道题可直接模拟或者找规律，直接模拟思维量会小些，找规律需要多些耐心。但二者实现时均需使用fgets来读入硬盘内容，否则会超时。</p>
 <p>​        本题有三个难点，读题，模拟/找规律，超时处理。</p>
 <h4 id="读题"><a href="#读题" class="headerlink" title="读题"></a>读题</h4><p>​        读题难点之一在于题目巨长，对新手很不友好，不过题目都是纸老虎，真正有用的就是标黄的部分。从标黄处获取到RAID<strong>算法本质</strong>就是在一个<strong>二维数组（列为硬盘，行为块）</strong>上做一些处理，只不过需遵守些规则罢了。因此，只需清楚校准位的选择和普通位置的选择规则即可。</p>
@@ -694,7 +645,7 @@ string backColor <span class="token operator">=</span> <span class="token string
 5
 // output
 A0A1A2A3
-A0A0A0A0</code></pre><h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><h4 id="C-模拟"><a href="#C-模拟" class="headerlink" title="C++(模拟)"></a>C++(模拟)</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+A0A0A0A0</code></pre><h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><h4 id="C-模拟"><a href="#C-模拟" class="headerlink" title="C++(模拟)"></a>C++(模拟)</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-08-26 23:25:21
  * @LastEditTime: 2019-08-27 19:39:11
@@ -790,8 +741,8 @@ map<span class="token operator">&lt;</span><span class="token keyword">char</spa
     <span class="token function">readData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">solve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="C-找规律"><a href="#C-找规律" class="headerlink" title="C++(找规律)"></a>C++(找规律)</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="C-找规律"><a href="#C-找规律" class="headerlink" title="C++(找规律)"></a>C++(找规律)</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-08-27 19:40:47
  * @LastEditTime: 2019-08-27 20:50:14
@@ -846,7 +797,7 @@ map<span class="token operator">&lt;</span><span class="token keyword">char</spa
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 换行别漏</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>​        这是做得第一道模拟题，举步维艰，读懂题目花了快1小时，理清思路快1小时，代码调试小半天，不过在这不断尝试与反思的过程收获满满。</p>
 <ul>
 <li>调试技巧：在提交代码时可故意输出一个错误值，这样可以看到时间和空间使用情况，一般来说10^7的原子运算绝对不会超时，但是输入输出就不一定了，使用scanf/cin子类的都会超时。因此，处理大批量的字符串时，可考虑fgets，极快。</li>
@@ -867,7 +818,7 @@ map<span class="token operator">&lt;</span><span class="token keyword">char</spa
 <h4 id="1-1-读题"><a href="#1-1-读题" class="headerlink" title="1.1 读题"></a>1.1 读题</h4><p>​        CSP第三题每次都是给出新的定义和算法过程，然我们去模拟还原。因此从题目获取关键信息尤为重要。本题关键在于理清：<strong>IP=&gt;IP加个长度表示IP前缀IP/len=&gt;多个IP前缀组成IP前缀列表；IP前缀如何计算IP匹配集？</strong></p>
 <p>​        前半部分根据题目所给信息，了解各自合法表示的规则以及相互关系即可。后半部分是重点，假设标准型IP前缀<code>123.2.0.0/16</code>，所有高16位为<code>123.2</code>的IP构成该前缀的匹配集<code>[123.2.0.0,123.2.255.255]</code>，即低16位可为任意数，不做限制。这就给我们一个解题的启发，匹配集用区间来表示，这个区间的左右边界可用IP匹配集的左右边界的十进制表示，便于比较。</p>
 <h4 id="1-2-字符串处理"><a href="#1-2-字符串处理" class="headerlink" title="1.2 字符串处理"></a>1.2 字符串处理</h4><h5 id="1-2-1-数据结构"><a href="#1-2-1-数据结构" class="headerlink" title="1.2.1 数据结构"></a>1.2.1 数据结构</h5><p>​        定义结构体类型PrefIP，以无符号整数存储IP的4个部分以及前缀长度。同时设置无符号整数val保存IP的10进制值，left，right分别表示该IP前缀的匹配集区间的左右边界，便于计算。代码如下：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> PrefIP <span class="token punctuation">{</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> PrefIP <span class="token punctuation">{</span>
     <span class="token keyword">unsigned</span> a<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 依次表示a[0]~a[4]</span>
     <span class="token keyword">unsigned</span> len<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 前缀长度</span>
     <span class="token keyword">unsigned</span> left<span class="token punctuation">,</span> right<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 匹配ip的左右区间[left,right]</span>
@@ -877,9 +828,9 @@ map<span class="token operator">&lt;</span><span class="token keyword">char</spa
         len <span class="token operator">=</span> left <span class="token operator">=</span> right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
         val <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="1-2-2-IP分割"><a href="#1-2-2-IP分割" class="headerlink" title="1.2.2 IP分割"></a>1.2.2 IP分割</h5><p>​        读入字符串后，先根据<code>/</code>判断IP类型，若不存在，则为省略长度型；若存在，则为标准型或省略后缀型，因此可用find函数找到<code>/</code>位置，将IP和长度部分分离。接下来就是IP的分割，为了便于使用，封装如下IP分割函数：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">splitIP</span><span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> s<span class="token punctuation">,</span> PrefIP<span class="token operator">&amp;</span> prefIP<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">splitIP</span><span class="token punctuation">(</span><span class="token keyword">const</span> string<span class="token operator">&amp;</span> s<span class="token punctuation">,</span> PrefIP<span class="token operator">&amp;</span> prefIP<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     stringstream <span class="token function">input</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
     string tmp<span class="token punctuation">;</span>
     <span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// IP分割</span>
@@ -887,28 +838,28 @@ map<span class="token operator">&lt;</span><span class="token keyword">char</spa
         <span class="token function">sscanf</span><span class="token punctuation">(</span>tmp<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"%u"</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>prefIP<span class="token punctuation">.</span>a<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 转为无符号整数</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> j<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// IP有几个部分组成，省略长度型使用</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-3-匹配集计算"><a href="#1-3-匹配集计算" class="headerlink" title="1.3 匹配集计算"></a>1.3 匹配集计算</h4><p>​        提取出IP的每一部分和前缀长度后，该计算匹配集的左右区间了。由于向右移位的位数必须小于左边数值的最大位数（二进制），因此，当<code>len=32</code>时，<code>0xffffffff&gt;&gt;32</code>违反规则，会造成不确定行为，因此对len=32需进行特判处理。（若属性二进制运算的可以不用单独计算出左右区间这么麻烦，直接通过位运算计算完成模拟）。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 前缀IP的匹配集区间计算</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 前缀IP的匹配集区间计算</span>
 <span class="token keyword">void</span> <span class="token function">matchSet</span><span class="token punctuation">(</span>PrefIP<span class="token operator">&amp;</span> p<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">4</span><span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// IP转为10进制</span>
         p<span class="token punctuation">.</span>val <span class="token operator">=</span> p<span class="token punctuation">.</span>val <span class="token operator">*</span> <span class="token number">256</span> <span class="token operator">+</span> p<span class="token punctuation">.</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     p<span class="token punctuation">.</span>left <span class="token operator">=</span> p<span class="token punctuation">.</span>val<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 左区间</span>
     p<span class="token punctuation">.</span>right <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token punctuation">.</span>len <span class="token operator">==</span> <span class="token number">32</span><span class="token punctuation">)</span> <span class="token operator">?</span> p<span class="token punctuation">.</span>val <span class="token operator">:</span> p<span class="token punctuation">.</span>val <span class="token operator">+</span> <span class="token punctuation">(</span><span class="token number">0xffffffffu</span> <span class="token operator">>></span> p<span class="token punctuation">.</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 右区间 巨坑！！！</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-4-模拟算法"><a href="#1-4-模拟算法" class="headerlink" title="1.4 模拟算法"></a>1.4 模拟算法</h4><p>​        由于题目已给出算法3个步骤：排序，合并具有包含关系的集合，合并同级集合。其中涉及的插入删除操作较多，随机查询较少，因此采用容器双向链表list来存储IP前缀列表。</p>
 <h5 id="1-4-1-排序"><a href="#1-4-1-排序" class="headerlink" title="1.4.1 排序"></a>1.4.1 排序</h5><p>​        list可用自带的sort函数，其中定义优先级可用lamda或者重载操作符&lt;。</p>
 <p><strong>（1）lamda函数</strong></p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 排序，IP值为第一标尺，前缀长度为第二标尺，均从小到大</span>
-_list<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span>PrefIP<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> PrefIP<span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>val <span class="token operator">!=</span> b<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> a<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>val <span class="token operator">:</span> a<span class="token punctuation">.</span>len <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>len<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 排序，IP值为第一标尺，前缀长度为第二标尺，均从小到大</span>
+_list<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">(</span>PrefIP<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> PrefIP<span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token keyword">return</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>val <span class="token operator">!=</span> b<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> a<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>val <span class="token operator">:</span> a<span class="token punctuation">.</span>len <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>len<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p><strong>（2）重载操作符&lt;</strong></p>
 <p>​        在结构体<strong>PrefIP</strong>中以友元函数重载操作符&lt;</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span>PrefIP<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> PrefIP<span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 友元</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">friend</span> <span class="token keyword">bool</span> <span class="token keyword">operator</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span>PrefIP<span class="token operator">&amp;</span> a<span class="token punctuation">,</span> PrefIP<span class="token operator">&amp;</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 友元</span>
     <span class="token keyword">return</span> <span class="token punctuation">(</span>a<span class="token punctuation">.</span>val <span class="token operator">!=</span> b<span class="token punctuation">.</span>val<span class="token punctuation">)</span> <span class="token operator">?</span> a<span class="token punctuation">.</span>val <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>val <span class="token operator">:</span> a<span class="token punctuation">.</span>len <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>len<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h5 id="1-4-2-合并具有包含关系的集合"><a href="#1-4-2-合并具有包含关系的集合" class="headerlink" title="1.4.2 合并具有包含关系的集合"></a>1.4.2 合并具有包含关系的集合</h5><p>​        从头到尾遍历依次遍历相邻的两个结点，若存在包含关系，删除被包含的结点。如何判断包含关系呢？之前已经将每个IP前缀的匹配集用区间表示出来，因此包含关系就是区间的包含关系。</p>
-<pre class=" language-cpp"><code class="language-cpp">pa<span class="token operator">-</span><span class="token operator">></span>left <span class="token operator">&lt;=</span> pb<span class="token operator">-</span><span class="token operator">></span>left <span class="token operator">&amp;&amp;</span> pa<span class="token operator">-</span><span class="token operator">></span>right <span class="token operator">>=</span> pb<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//满足该条件则pb包含于pa</span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp">pa<span class="token operator">-</span><span class="token operator">></span>left <span class="token operator">&lt;=</span> pb<span class="token operator">-</span><span class="token operator">></span>left <span class="token operator">&amp;&amp;</span> pa<span class="token operator">-</span><span class="token operator">></span>right <span class="token operator">>=</span> pb<span class="token operator">-</span><span class="token operator">></span>right<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//满足该条件则pb包含于pa</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5 id="1-4-3-合并同级集合"><a href="#1-4-3-合并同级集合" class="headerlink" title="1.4.3 合并同级集合"></a>1.4.3 合并同级集合</h5><p><strong>（1）合法判断</strong></p>
 <p>​        算法逻辑较简单，主要是新a’的合法性判断，合法的IP前缀<code>IP/len</code>同时满足以下3个标准：</p>
 <ol>
@@ -927,7 +878,7 @@ _list<span class="token punctuation">.</span><span class="token function">sort</
 </li>
 </ol>
 <p>​        综上所述，只需判断a的第32-len位是0或是1即可判断合法与否。（<strong>&amp;的优先级低于==，需加括号</strong>）</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token punctuation">(</span><span class="token punctuation">(</span>pa<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">>></span> <span class="token punctuation">(</span><span class="token number">32</span> <span class="token operator">-</span> pa<span class="token operator">-</span><span class="token operator">></span>len<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1u</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//结果为真则合法</span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token punctuation">(</span><span class="token punctuation">(</span>pa<span class="token operator">-</span><span class="token operator">></span>val <span class="token operator">>></span> <span class="token punctuation">(</span><span class="token number">32</span> <span class="token operator">-</span> pa<span class="token operator">-</span><span class="token operator">></span>len<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span> <span class="token number">1u</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//结果为真则合法</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p><strong>（2）并集求解</strong></p>
 <p>​        对a’重新计算匹配集后，a，b匹配集的并集就是区间的并集，left取最小，right取最大即可。</p>
 <h3 id="2-注意点-1"><a href="#2-注意点-1" class="headerlink" title="2 注意点"></a>2 注意点</h3><ul>
@@ -990,7 +941,7 @@ _list<span class="token punctuation">.</span><span class="token function">sort</
 1.1
 1.2
 //output
-0.0.0.0/0</code></pre><h3 id="4-C-（字符串处理-链表-集合-位运算）"><a href="#4-C-（字符串处理-链表-集合-位运算）" class="headerlink" title="4 C++（字符串处理+链表+集合+位运算）"></a>4 C++（字符串处理+链表+集合+位运算）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+0.0.0.0/0</code></pre><h3 id="4-C-（字符串处理-链表-集合-位运算）"><a href="#4-C-（字符串处理-链表-集合-位运算）" class="headerlink" title="4 C++（字符串处理+链表+集合+位运算）"></a>4 C++（字符串处理+链表+集合+位运算）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-08-28 09:17:24
  * @LastEditTime: 2019-08-28 23:11:20
@@ -1106,7 +1057,7 @@ list<span class="token operator">&lt;</span>PrefIP<span class="token operator">>
         <span class="token function">printIP</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201809-3-元素选择器"><a href="#201809-3-元素选择器" class="headerlink" title="201809-3 元素选择器"></a><a href="http://118.190.20.162/view.page?gpid=T77" target="_blank" rel="noopener">201809-3 元素选择器</a></h2><h3 id="1-思路分析-2"><a href="#1-思路分析-2" class="headerlink" title="1 思路分析"></a>1 思路分析</h3><p>​        第三题老套路，总是离不开字符串处理，不过好像涉及高级数据结构的题目数据量都较小，所以本题无需考虑时空复杂度，直接可用string容器，其中包含许多便利的字符串处理函数。</p>
 <p>​         算法主要分为有三个难点：<strong>字符串处理，建立树，查询方式</strong>。根据建立树的方式不同，可分为两种思路：</p>
 <ol>
@@ -1118,30 +1069,30 @@ list<span class="token operator">&lt;</span>PrefIP<span class="token operator">>
 </li>
 </ol>
 <p>​        这里详细解释第二种思路，因此先建立结构体类型STNode表示静态树的结点。其中依次包括表示元素，id，层号，孩子结点列表的字段。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> maxn <span class="token operator">=</span> <span class="token number">105</span><span class="token punctuation">;</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">const</span> <span class="token keyword">int</span> maxn <span class="token operator">=</span> <span class="token number">105</span><span class="token punctuation">;</span>
 <span class="token keyword">struct</span> STNode <span class="token punctuation">{</span>
     string element<span class="token punctuation">,</span> id<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 元素，id</span>
     <span class="token keyword">int</span> layer<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 层号</span>
     vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> child<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 子结点列表</span>
-<span class="token punctuation">}</span>stree<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre>
+<span class="token punctuation">}</span>stree<span class="token punctuation">[</span>maxn<span class="token punctuation">]</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>​        再建立结构体类型Query来表示查询的一个结点，包含查询内容和类型。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> Query <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 查询</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> Query <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 查询</span>
     string content<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 查询内容</span>
     <span class="token keyword">int</span> type<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 类型：元素：0；id：1</span>
 <span class="token punctuation">}</span>tqy<span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span>Query<span class="token operator">></span> query<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 存储一条的查询路径</span></code></pre>
+vector<span class="token operator">&lt;</span>Query<span class="token operator">></span> query<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 存储一条的查询路径</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-1-字符串处理"><a href="#1-1-字符串处理" class="headerlink" title="1.1 字符串处理"></a>1.1 字符串处理</h4><h5 id="1-1-1-结构化文档"><a href="#1-1-1-结构化文档" class="headerlink" title="1.1.1 结构化文档"></a>1.1.1 结构化文档</h5><p>​        使用string自带的函数，来提取每行字符串中的3类信息：行号、层号、标签、id。</p>
 <ol>
 <li><strong>行号</strong>：定义int型i，初值为1，每处理完一行就加1，i作为该结点在数组的下标，也代表行号。</li>
 <li><strong>层号</strong>：通过string的find_first_not_of函数找到第一个不是<code>.</code>的元素下标，即为<code>.</code>的个数，除以2，就是层号。</li>
 </ol>
-<pre class=" language-c++"><code class="language-c++">stree[root].layer = s.find_first_not_of('.') / 2; // 层号：.的个数除以2</code></pre>
+<pre class="line-numbers language-c++"><code class="language-c++">stree[root].layer = s.find_first_not_of('.') / 2; // 层号：.的个数除以2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <ol start="3">
 <li><strong>标签和id</strong>：主要是substr和find函数使用<strong>（ps:取子串时需去除换行）</strong>。先根据find函数找到<code>#</code>位置，再用substr取出标签和id即可。其中标签不区分大小写，因此统一转为小写，在查询时也如此处理。可用transform函数，完成转换，具体如下：</li>
 </ol>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token function">transform</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">::</span>tolower<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 元素全转为小写，大小写不敏感</span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token function">transform</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> e<span class="token punctuation">.</span><span class="token function">begin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">::</span>tolower<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 元素全转为小写，大小写不敏感</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h5 id="1-1-2-查询选择器"><a href="#1-1-2-查询选择器" class="headerlink" title="1.1.2 查询选择器"></a>1.1.2 查询选择器</h5><p>​        而查询的字符串分割比上面的步骤少了对<code>.</code>的处理，因此完全可以套用上面处理方式。但这里需要不仅要获取内容，还要获取类型。这里可将一条查询的每个部分看成一个结点，每个查询结点都以空格间隔，因此可用更简单的stringstream处理分割内容，得到内容后，根据s[0]是否为#判断其类型（结构化文档将<strong>标签类型转为小写</strong>，这里保持统一，也转为小写）。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">getQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">void</span> <span class="token function">getQuery</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">char</span> str<span class="token punctuation">[</span><span class="token number">90</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token function">fgets</span><span class="token punctuation">(</span>str<span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token constant">stdin</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     string s <span class="token operator">=</span> str<span class="token punctuation">,</span> tmp<span class="token punctuation">;</span>
@@ -1158,10 +1109,10 @@ vector<span class="token operator">&lt;</span>Query<span class="token operator">
         <span class="token punctuation">}</span>
         query<span class="token punctuation">.</span><span class="token function">push_back</span><span class="token punctuation">(</span>tqy<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-2-建立普通树"><a href="#1-2-建立普通树" class="headerlink" title="1.2 建立普通树"></a>1.2 建立普通树</h4><p>​        普通树的建立关键是记录每个结点的孩子结点。使用静态数组建立普通树，数据结构在前文已给出，注意到结点是按前序遍历给出的顺序，因此可用<strong>前序建树</strong>的思想，递归实现有些麻烦，因此选择用<strong>栈模拟实现</strong>。</p>
 <p>​        根结点先入栈，遍历每一个结点，若当前层号小于等于栈顶层号，弹出栈顶；否则将当前结点添加为栈顶的孩子，并入栈。具体如下：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 栈模拟前序建树</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 栈模拟前序建树</span>
 <span class="token keyword">void</span> <span class="token function">createStree</span><span class="token punctuation">(</span><span class="token keyword">int</span> root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     stack<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">></span> stk<span class="token punctuation">;</span>
     stk<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 根结点入栈</span>
@@ -1172,13 +1123,13 @@ vector<span class="token operator">&lt;</span>Query<span class="token operator">
         stk<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// i入栈，作为当前的父结点</span>
         i <span class="token operator">++</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h4 id="1-3-查询方式"><a href="#1-3-查询方式" class="headerlink" title="1.3 查询方式"></a>1.3 查询方式</h4><p>​        查询分为两种情况：单级查询和多级查询（<strong>前序遍历不包含root结点</strong>）。</p>
 <ol>
 <li>单级查询：直接前序遍历整棵树，记录匹配的结点。</li>
 <li>多级查询：先用dfs找到满足前n-1个查询条件的第一个结点root，再对root进行单级查询。</li>
 </ol>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 遍历满足前query.size()-1个的结点root，查询root的子树中满足最后一个条件的结点</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">// 遍历满足前query.size()-1个的结点root，查询root的子树中满足最后一个条件的结点</span>
 <span class="token comment" spellcheck="true">// root：当前结点；num：已满足的查询条件个数</span>
 <span class="token keyword">void</span> <span class="token function">dfs</span><span class="token punctuation">(</span><span class="token keyword">int</span> root<span class="token punctuation">,</span> <span class="token keyword">int</span> num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">if</span><span class="token punctuation">(</span>query<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 单级查询特判</span>
@@ -1196,7 +1147,7 @@ vector<span class="token operator">&lt;</span>Query<span class="token operator">
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">auto</span> p <span class="token operator">:</span> stree<span class="token punctuation">[</span>root<span class="token punctuation">]</span><span class="token punctuation">.</span>child<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 遍历所有子结点</span>
         <span class="token function">dfs</span><span class="token punctuation">(</span>p<span class="token punctuation">,</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-注意点-2"><a href="#2-注意点-2" class="headerlink" title="2 注意点"></a>2 注意点</h3><ul>
 <li>熟练使用string自带的字符串处理函数s.find，s.find_first_not_of；系统自带的find，find_if_not条件查询。fgets或getline会读入换行符，使用substr取子串时需要<strong>去除换行符</strong>。</li>
 <li><strong>标签</strong>在结构化文档和查询处理时全部<strong>统一为小写或大写</strong>。</li>
@@ -1229,7 +1180,7 @@ div div p
 1 6
 0
 2 9 11
-1 11</code></pre><h3 id="4-C-（树-并查集-字符串处理-树遍历）"><a href="#4-C-（树-并查集-字符串处理-树遍历）" class="headerlink" title="4 C++（树/并查集+字符串处理+树遍历）"></a>4 C++（树/并查集+字符串处理+树遍历）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+1 11</code></pre><h3 id="4-C-（树-并查集-字符串处理-树遍历）"><a href="#4-C-（树-并查集-字符串处理-树遍历）" class="headerlink" title="4 C++（树/并查集+字符串处理+树遍历）"></a>4 C++（树/并查集+字符串处理+树遍历）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-08-29 09:49:20
  * @LastEditTime: 2019-08-29 20:56:24
@@ -1350,7 +1301,7 @@ vector<span class="token operator">&lt;</span><span class="token keyword">int</s
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h3><p>​        做这题可谓一波三折，哪三折呢？依次为字符串处理，建树方式，查询方式。每一个都卡了好久，这美好的一天就悄然而逝。为啥卡呢？</p>
 <ol>
 <li>字符串处理：不熟悉string和常见的字符串处理函数，每一步都需要打印验证是否正确，不过确实学到了许多东西，如stringstream做分割使用，find，find_first_not_of，和条件查询find_not_of（lamda表示断言）。</li>
@@ -1402,7 +1353,7 @@ c1
 404
 404
 a3 str 9123 i-j.js/t/</code></pre><h3 id="4-C-（正则表达式）"><a href="#4-C-（正则表达式）" class="headerlink" title="4 C++（正则表达式）"></a>4 C++（正则表达式）</h3><p>​        自己最开始写的代码是直接模拟，但死活只有90分，到现在还没找到问题，所以先把这个AC代码贴上来。</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-08-30 22:46:59
  * @LastEditTime: 2019-09-03 15:44:09
@@ -1464,7 +1415,7 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
         <span class="token function">query</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>str<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token keyword">int</span><span class="token operator">></span></code></pre>
+<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>str<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token keyword">int</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="5-参考"><a href="#5-参考" class="headerlink" title="5 参考"></a>5 参考</h3><ul>
 <li><p><a href="https://blog.csdn.net/best335/article/details/99698270" target="_blank" rel="noopener">直接处理40行代码</a></p>
 </li>
@@ -1491,7 +1442,7 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
 </li>
 </ul>
 <h4 id="1-2-当前日期是星期几？"><a href="#1-2-当前日期是星期几？" class="headerlink" title="1.2 当前日期是星期几？"></a>1.2 当前日期是星期几？</h4><p>​        根据1970.1.1是周4，按年月日分别计算天数，对7取余即可。模板化代码具体如下：</p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getWeekday</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">,</span> <span class="token keyword">int</span> month<span class="token punctuation">,</span> <span class="token keyword">int</span> day<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 1970.1.1为周4 => 获取当前日期是星期几</span>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">int</span> <span class="token function">getWeekday</span><span class="token punctuation">(</span><span class="token keyword">int</span> year<span class="token punctuation">,</span> <span class="token keyword">int</span> month<span class="token punctuation">,</span> <span class="token keyword">int</span> day<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 1970.1.1为周4 => 获取当前日期是星期几</span>
     <span class="token keyword">int</span> ret <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> y <span class="token operator">=</span> <span class="token number">1970</span><span class="token punctuation">;</span> y <span class="token operator">&lt;</span> year<span class="token punctuation">;</span> y <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// 年</span>
         <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">isLeap</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">366</span> <span class="token operator">:</span> <span class="token number">365</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 闰平年</span>
@@ -1503,7 +1454,7 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
     <span class="token punctuation">}</span>
     ret <span class="token operator">=</span> <span class="token punctuation">(</span>ret <span class="token operator">+</span> day <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">7</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 日</span>
     <span class="token keyword">return</span> ret<span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-注意点-4"><a href="#2-注意点-4" class="headerlink" title="2 注意点"></a>2 注意点</h3><ul>
 <li>longlong输出格式：<code>lld</code>，<code>ld</code>是<code>long int</code>！！！</li>
 </ul>
@@ -1529,7 +1480,7 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
 201711211815 have_dinner
 201711220700 get_up
 201711221215 have_dinner
-201711221815 have_dinner</code></pre><h3 id="4-C-（字符串-日期-构造法）"><a href="#4-C-（字符串-日期-构造法）" class="headerlink" title="4 C++（字符串+日期+构造法）"></a>4 C++（字符串+日期+构造法）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+201711221815 have_dinner</code></pre><h3 id="4-C-（字符串-日期-构造法）"><a href="#4-C-（字符串-日期-构造法）" class="headerlink" title="4 C++（字符串+日期+构造法）"></a>4 C++（字符串+日期+构造法）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-08-31 12:13:20
  * @LastEditTime: 2019-09-03 15:30:43
@@ -1645,7 +1596,7 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
     <span class="token punctuation">}</span>
     <span class="token function">showResult</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="5-参考-1"><a href="#5-参考-1" class="headerlink" title="5 参考"></a>5 参考</h3><ul>
 <li><a href="https://blog.csdn.net/richenyunqi/article/details/86720394" target="_blank" rel="noopener">思路巧妙</a></li>
 </ul>
@@ -1659,7 +1610,7 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
 <li>vector类型没初始化不允许使用下标访问，如定义vector<int>a；里面没元素是不许用a[i]方式访问。</int></li>
 <li>认真仔细的处理字符串，基本没问题。</li>
 </ul>
-<h3 id="3-测试样例-3"><a href="#3-测试样例-3" class="headerlink" title="3 测试样例"></a>3 测试样例</h3><pre class=" language-json"><code class="language-json"><span class="token number">7</span> <span class="token number">7</span>
+<h3 id="3-测试样例-3"><a href="#3-测试样例-3" class="headerlink" title="3 测试样例"></a>3 测试样例</h3><pre class="line-numbers language-json"><code class="language-json"><span class="token number">7</span> <span class="token number">7</span>
 <span class="token punctuation">{</span>
 <span class="token property">"k1"</span> <span class="token operator">:</span> <span class="token string">"v1"</span><span class="token punctuation">,</span>
 <span class="token property">"k2"</span><span class="token operator">:</span><span class="token string">"v2"</span><span class="token punctuation">,</span>
@@ -1681,8 +1632,8 @@ NOTEXIST
 OBJECT
 STRING v3331
 STRING v41
-STRING v5</code></pre>
-<h3 id="4-C-（栈模拟建树-查询-字符串处理）"><a href="#4-C-（栈模拟建树-查询-字符串处理）" class="headerlink" title="4 C++（栈模拟建树+查询+字符串处理）"></a>4 C++（栈模拟建树+查询+字符串处理）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+STRING v5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-C-（栈模拟建树-查询-字符串处理）"><a href="#4-C-（栈模拟建树-查询-字符串处理）" class="headerlink" title="4 C++（栈模拟建树+查询+字符串处理）"></a>4 C++（栈模拟建树+查询+字符串处理）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-01 09:44:12
  * @LastEditTime: 2019-09-03 07:20:04
@@ -1789,7 +1740,7 @@ string json<span class="token punctuation">;</span> <span class="token comment" 
         <span class="token function">query</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201703-3-Markdown"><a href="#201703-3-Markdown" class="headerlink" title="201703-3 Markdown"></a><a href="http://118.190.20.162/view.page?gpid=T55" target="_blank" rel="noopener">201703-3 Markdown</a></h2><h3 id="1-思路分析-6"><a href="#1-思路分析-6" class="headerlink" title="1 思路分析"></a>1 思路分析</h3><p>​        两个区块之间有一个或多个空行分割，因此在读入时可根据空行来处理当前分块，同时，最后一行之后又没有空行，因此需要特殊处理。用正则表达式来处理分块可降低难度，以下为主要的正则式：</p>
 <ul>
 <li><strong>强调</strong>：<code>_([^_]+)_</code>表示以下划线开头和结尾，中间至少1个非下划线字符（若是这样写：<code>_(.+)_</code>，中间为任意字符的话，当一段字符串同时<strong>有多个强调</strong>时，根据匹配的贪心法则，只会处理第一个和最后一个下划线，如<code>1_23_4_56_7</code>处理后为<code>1&lt;em&gt;23_4_56&lt;/em&gt;7</code>。10个测试样例均有同时包含多个强调。）。</li>
@@ -1822,7 +1773,7 @@ Bullet list:
 *   oranges
 * pears
 
-A [link](http://example.com).</code></pre><h3 id="4-C-（正则表达式）-1"><a href="#4-C-（正则表达式）-1" class="headerlink" title="4 C++（正则表达式）"></a>4 C++（正则表达式）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+A [link](http://example.com).</code></pre><h3 id="4-C-（正则表达式）-1"><a href="#4-C-（正则表达式）-1" class="headerlink" title="4 C++（正则表达式）"></a>4 C++（正则表达式）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-02 18:58:57
  * @LastEditTime: 2019-09-03 06:30:51
@@ -1858,7 +1809,7 @@ map<span class="token operator">&lt;</span>string<span class="token punctuation"
     <span class="token punctuation">}</span>
     <span class="token function">solve</span><span class="token punctuation">(</span>block<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 处理最后一块</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201612-3-权限查询"><a href="#201612-3-权限查询" class="headerlink" title="201612-3 权限查询"></a><a href="http://118.190.20.162/view.page?gpid=T50" target="_blank" rel="noopener">201612-3 权限查询</a></h2><h3 id="1-思路分析-7"><a href="#1-思路分析-7" class="headerlink" title="1 思路分析"></a>1 思路分析</h3><p>​        本题比较容易，令<code>unordered_map&lt;string, unordered_map&lt;string, int&gt; &gt; role, user</code>分别存储角色和用户的权限名和等级，其中等级默认为-1，表示不分等级。先读入role，在读入user过程中，直接将user与对应的权限与等级想绑定，便于查询。</p>
 <h3 id="2-注意点-7"><a href="#2-注意点-7" class="headerlink" title="2 注意点"></a>2 注意点</h3><ul>
 <li>由于题目保证R段的输入合法，因此P段没有用处，不保存也行。第一次见到多余条件的题。</li>
@@ -1867,7 +1818,7 @@ map<span class="token operator">&lt;</span>string<span class="token punctuation"
 </ul>
 <h3 id="3-AC代码"><a href="#3-AC代码" class="headerlink" title="3 AC代码"></a>3 AC代码</h3><p>​        数据结构的设计直接影响编码复杂度，以下原始和优化的代码对比是恰如其分的说明。</p>
 <h4 id="3-1-C-（优化版-STL-unordered-map）"><a href="#3-1-C-（优化版-STL-unordered-map）" class="headerlink" title="3.1 C++（优化版 STL:unordered_map）"></a>3.1 C++（优化版 STL:unordered_map）</h4><p>​        <a href="https://blog.csdn.net/richenyunqi/article/details/87823905" target="_blank" rel="noopener">参考博客</a></p>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-04 08:28:11
  * @LastEditTime: 2019-09-04 09:26:24
@@ -1919,8 +1870,8 @@ pair<span class="token operator">&lt;</span>string<span class="token punctuation
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="3-2-C-（原始版）"><a href="#3-2-C-（原始版）" class="headerlink" title="3.2 C++（原始版）"></a>3.2 C++（原始版）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-2-C-（原始版）"><a href="#3-2-C-（原始版）" class="headerlink" title="3.2 C++（原始版）"></a>3.2 C++（原始版）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-03 21:28:54
  * @LastEditTime: 2019-09-03 23:16:10
@@ -2020,7 +1971,7 @@ unordered_map<span class="token operator">&lt;</span>string<span class="token pu
     <span class="token function">readData</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token function">query</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201609-3-炉石传说"><a href="#201609-3-炉石传说" class="headerlink" title="201609-3 炉石传说"></a><a href="http://118.190.20.162/view.page?gpid=T45" target="_blank" rel="noopener">201609-3 炉石传说</a></h2><h3 id="1-思路分析-8"><a href="#1-思路分析-8" class="headerlink" title="1 思路分析"></a>1 思路分析</h3><p>​        思路比较简单，使用<code>vector&lt;pair&lt;int, int&gt; &gt; player[2]</code>存储正反两个玩家对应角色的攻击力和生命值。用vector的insert和erase函数完成指定位置的插入删除（在此前vector需初始化，否则会溢出）。</p>
 <h3 id="2-注意点-8"><a href="#2-注意点-8" class="headerlink" title="2 注意点"></a>2 注意点</h3><ul>
 <li>执行攻击动作时，必须先将正反两方的生命值都计算出来后，才能删除死亡的非英雄角色，若先删除一个死亡英雄，那么计算下个角色的生命值就不对了（英雄不可删除）。</li>
@@ -2028,7 +1979,7 @@ unordered_map<span class="token operator">&lt;</span>string<span class="token pu
 <li>这里vector需要初始化，否则插入容易溢出（不初始化其实也能AC，因为测试样例没考虑这点）。</li>
 <li>一般涉及较多的插入删除使用链表比较合适，但链表缺点在于只能通过迭代器访问，且迭代器只能通过自增，因此不适合本题随机插入。</li>
 </ul>
-<h3 id="3-C-vector模拟"><a href="#3-C-vector模拟" class="headerlink" title="3 C++(vector模拟)"></a>3 C++(vector模拟)</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<h3 id="3-C-vector模拟"><a href="#3-C-vector模拟" class="headerlink" title="3 C++(vector模拟)"></a>3 C++(vector模拟)</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-04 19:29:11
  * @LastEditTime: 2019-09-04 21:39:29
@@ -2077,14 +2028,14 @@ vector<span class="token operator">&lt;</span>pair<span class="token operator">&
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-总结"><a href="#4-总结" class="headerlink" title="4 总结"></a>4 总结</h3><p>​        上了大三，学了专业课，发现真的好不一样，老师都好厉害，思维方式都改变了。今天上软件测试，明白了需求规格分析才是根本，放到这里，同样适用，只要我把题目的需求（要求）捋清楚，那么编码其实是很容易的事。所以，以后遇到很长的题，先弄明白要干什么，再去coding。</p>
 <h2 id="201604-3-路径解析"><a href="#201604-3-路径解析" class="headerlink" title="201604-3 路径解析"></a><a href="http://118.190.20.162/view.page?gpid=T40" target="_blank" rel="noopener">201604-3 路径解析</a></h2><h3 id="1-思路"><a href="#1-思路" class="headerlink" title="1  思路"></a>1  思路</h3><p>​        步骤 1：以string型变量nowPath存储当前路径。若当前需正规化路径为空，直接输出当前路径；否则进入步骤2。<br>​        步骤 2：若字符串s不以<code>/</code>开头，即以相对路径开头，拼接当前路径与s，中间以<code>/</code>分割，得到新s。用stringstream以<code>/</code>来分割字符串s，若得到的字符串tmp为<code>.</code>，直接忽略；若tmp不为<code>..</code>，将其压入string类型容器ans中；若tmp为<code>..</code>且ans非空，弹出尾部元素。<br>​        步骤 3：最终ans中存储的是除了根目录以外路径的各个部分，按要求输出即可。</p>
 <h3 id="2-注意点-9"><a href="#2-注意点-9" class="headerlink" title="2  注意点"></a>2  注意点</h3><ul>
 <li>若用正则表达式处理，会超时，仅90分。</li>
 <li>本题有些像栈，不用使用vector容器模拟更方便。</li>
 </ul>
-<h3 id="3-代码"><a href="#3-代码" class="headerlink" title="3  代码"></a>3  代码</h3><h4 id="3-1-C-（vector模拟栈，100分）"><a href="#3-1-C-（vector模拟栈，100分）" class="headerlink" title="3.1 C++（vector模拟栈，100分）"></a>3.1 C++（vector模拟栈，100分）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<h3 id="3-代码"><a href="#3-代码" class="headerlink" title="3  代码"></a>3  代码</h3><h4 id="3-1-C-（vector模拟栈，100分）"><a href="#3-1-C-（vector模拟栈，100分）" class="headerlink" title="3.1 C++（vector模拟栈，100分）"></a>3.1 C++（vector模拟栈，100分）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-05 20:52:26
  * @LastEditTime: 2019-09-05 21:11:12
@@ -2120,8 +2071,8 @@ string nowPath<span class="token punctuation">;</span>
         <span class="token punctuation">}</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="3-2-C-（正则表达式，90分）"><a href="#3-2-C-（正则表达式，90分）" class="headerlink" title="3.2 C++（正则表达式，90分）"></a>3.2 C++（正则表达式，90分）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-2-C-（正则表达式，90分）"><a href="#3-2-C-（正则表达式，90分）" class="headerlink" title="3.2 C++（正则表达式，90分）"></a>3.2 C++（正则表达式，90分）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-05 09:26:11
  * @LastEditTime: 2019-09-05 20:45:43
@@ -2168,7 +2119,7 @@ string now<span class="token punctuation">,</span> pre<span class="token punctua
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token comment" spellcheck="true">// /d2/d3/../d1/../../d2 </span>
-<span class="token comment" spellcheck="true">// ../1/..d.2./././.././</span></code></pre>
+<span class="token comment" spellcheck="true">// ../1/..d.2./././.././</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="4-总结-1"><a href="#4-总结-1" class="headerlink" title="4 总结"></a>4 总结</h3><p>​        一开始用正则表达式只有60分，因为没考虑到文件|目录存在<code>.</code>，与特殊字符混在一起，导致正则失效，后来想把文件|目录中的<code>.</code>改为未出现的<code>*</code>，发现难以区分。接着灵光一闪，用正则表达式把<code>/../</code>改为<code>/**/</code>，就好办多了。但是最后一个点超时了，可见正则表达式效率极低。</p>
 <p>​        正则表达式两缺点：太慢；复杂匹配容易重复交叉，不容易发现问题。</p>
 <h2 id="201512-3-画图"><a href="#201512-3-画图" class="headerlink" title="201512-3 画图"></a><a href="http://118.190.20.162/view.page?gpid=T35" target="_blank" rel="noopener">201512-3 画图</a></h2><h3 id="1-思路-1"><a href="#1-思路-1" class="headerlink" title="1  思路"></a>1  思路</h3><pre><code>    总体比较简单，用N*M的数组保存图，注意以下问题：</code></pre><ul>
@@ -2179,7 +2130,7 @@ string now<span class="token punctuation">,</span> pre<span class="token punctua
 <h3 id="2-注意点-10"><a href="#2-注意点-10" class="headerlink" title="2  注意点"></a>2  注意点</h3><ul>
 <li>注意输出格式，不需空格，原样输出矩阵即可。</li>
 </ul>
-<h3 id="3-C-（矩阵模拟-BFS）"><a href="#3-C-（矩阵模拟-BFS）" class="headerlink" title="3  C++（矩阵模拟+BFS）"></a>3  C++（矩阵模拟+BFS）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<h3 id="3-C-（矩阵模拟-BFS）"><a href="#3-C-（矩阵模拟-BFS）" class="headerlink" title="3  C++（矩阵模拟+BFS）"></a>3  C++（矩阵模拟+BFS）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-06 08:31:20
  * @LastEditTime: 2019-09-06 14:46:44
@@ -2255,7 +2206,7 @@ string now<span class="token punctuation">,</span> pre<span class="token punctua
     <span class="token punctuation">}</span>
     <span class="token function">print</span><span class="token punctuation">(</span>n<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201509-3-模板生成系统"><a href="#201509-3-模板生成系统" class="headerlink" title="201509-3 模板生成系统"></a><a href="http://118.190.20.162/view.page?gpid=T30" target="_blank" rel="noopener">201509-3 模板生成系统</a></h2><h3 id="1-思路分析-9"><a href="#1-思路分析-9" class="headerlink" title="1  思路分析"></a>1  思路分析</h3><pre><code>    这是一道绝佳的字符串练习，可用正则表达式或直接处理。
 
     步骤 1：用fgets读入每一行，并拼接在string类型的s后（包括换行）。定义map&lt;string,string&gt;mp存储变量名到变量值，其中变量值需去除两端的双引号。
@@ -2263,7 +2214,7 @@ string now<span class="token punctuation">,</span> pre<span class="token punctua
     步骤 2：接着有3种做法，具体如下：</code></pre><p>（1）利用正则表达式在所有<code>后</code>添加字符`, 然后使用stringstream根据字符`来分割字符串s得到一个个子串tmp，若tmp符合变量格式，利用正则表达式取出变量，若其在mp存在，直接输出相应值，否则跳过；若不符合变量格式，直接输出tmp即可（这有一点投机取巧，就是赌测试样例中不含字符`，因此又参考练习以下两种思路）。</p>
 <p>（2）利用正则表达式搜索功能，一个个找匹配的变量，找到后处理方式与（1）相同。</p>
 <p>（3）思路与（2）一样，不过单纯使用find函数实现，效率最高。</p>
-<pre><code>    这3种思路的AC代码如下：</code></pre><h3 id="2-三种思路AC代码"><a href="#2-三种思路AC代码" class="headerlink" title="2  三种思路AC代码"></a>2  三种思路AC代码</h3><h4 id="2-1-C-（正则表达式添加字符分割）"><a href="#2-1-C-（正则表达式添加字符分割）" class="headerlink" title="2.1  C++（正则表达式添加字符分割）"></a>2.1  C++（正则表达式添加字符分割）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<pre><code>    这3种思路的AC代码如下：</code></pre><h3 id="2-三种思路AC代码"><a href="#2-三种思路AC代码" class="headerlink" title="2  三种思路AC代码"></a>2  三种思路AC代码</h3><h4 id="2-1-C-（正则表达式添加字符分割）"><a href="#2-1-C-（正则表达式添加字符分割）" class="headerlink" title="2.1  C++（正则表达式添加字符分割）"></a>2.1  C++（正则表达式添加字符分割）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-06 18:58:19
  * @LastEditTime: 2019-09-06 20:10:55
@@ -2303,8 +2254,8 @@ string s<span class="token punctuation">,</span> var<span class="token punctuati
     <span class="token punctuation">}</span>
     cout <span class="token operator">&lt;&lt;</span>ans<span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="2-2-C-（正则表达式搜索）"><a href="#2-2-C-（正则表达式搜索）" class="headerlink" title="2.2  C++（正则表达式搜索）"></a>2.2  C++（正则表达式搜索）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-2-C-（正则表达式搜索）"><a href="#2-2-C-（正则表达式搜索）" class="headerlink" title="2.2  C++（正则表达式搜索）"></a>2.2  C++（正则表达式搜索）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-06 20:29:29
  * @LastEditTime: 2019-09-06 20:56:20
@@ -2339,8 +2290,8 @@ string s<span class="token punctuation">,</span> var<span class="token punctuati
     <span class="token punctuation">}</span>
     <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span> i <span class="token operator">!=</span> s<span class="token punctuation">.</span><span class="token function">cend</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span> <span class="token operator">*</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出剩余字符</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="2-3-C-（单纯find函数）"><a href="#2-3-C-（单纯find函数）" class="headerlink" title="2.3  C++（单纯find函数）"></a>2.3  C++（单纯find函数）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-3-C-（单纯find函数）"><a href="#2-3-C-（单纯find函数）" class="headerlink" title="2.3  C++（单纯find函数）"></a>2.3  C++（单纯find函数）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-06 20:56:55
  * @LastEditTime: 2019-09-06 21:16:04
@@ -2378,7 +2329,7 @@ string s<span class="token punctuation">,</span> var<span class="token punctuati
         <span class="token keyword">else</span> <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%c"</span><span class="token punctuation">,</span> s<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 匹配结束，输出剩余字符</span>
     <span class="token punctuation">}</span><span class="token keyword">while</span><span class="token punctuation">(</span>i <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3-总结"><a href="#3-总结" class="headerlink" title="3  总结"></a>3  总结</h3><ul>
 <li>有时直接对字符串处理还更简单，主要用string的find，stringstream，substr在辅助以正则表达式的搜索，匹配，替换。</li>
 <li>正则表达式的搜索每次找到第一个符合的就立刻返回，因此需要手动迭代位置，其中smacth的[first,second)表示该匹配子串在原串的下标。而匹配和替换都是一次性处理完整个字符串，得到所有匹配的子串。</li>
@@ -2392,7 +2343,7 @@ string s<span class="token punctuation">,</span> var<span class="token punctuati
 <h3 id="2-注意点-11"><a href="#2-注意点-11" class="headerlink" title="2  注意点"></a>2  注意点</h3><ul>
 <li>题目所给星期是从1~7，可将周日用0表示，便于模运算。</li>
 </ul>
-<h3 id="3-C-（日期处理模板）"><a href="#3-C-（日期处理模板）" class="headerlink" title="3  C++（日期处理模板）"></a>3  C++（日期处理模板）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<h3 id="3-C-（日期处理模板）"><a href="#3-C-（日期处理模板）" class="headerlink" title="3  C++（日期处理模板）"></a>3  C++（日期处理模板）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-07 08:36:48
  * @LastEditTime: 2019-09-07 09:01:51
@@ -2437,21 +2388,21 @@ string s<span class="token punctuation">,</span> var<span class="token punctuati
         <span class="token keyword">if</span><span class="token punctuation">(</span>cnt <span class="token operator">!=</span> b<span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"none\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201412-3-集合竞价（好题）"><a href="#201412-3-集合竞价（好题）" class="headerlink" title="201412-3 集合竞价（好题）"></a><a href="http://118.190.20.162/view.page?gpid=T19" target="_blank" rel="noopener">201412-3 集合竞价（好题）</a></h2><h3 id="1-思路分析-11"><a href="#1-思路分析-11" class="headerlink" title="1  思路分析"></a>1  思路分析</h3><pre><code>    定价的选择存在一个区间，关键在于发现其取值落于买单中。虽然这看起来是很自然的结论，不过还是可[证明参考](https://blog.csdn.net/AivenZhong/article/details/84195177)。知道定价一定从买单价格中选取后，即枚举每个买单价格p，分别计算出买单价格中大于等于p的交易总量和卖单价格小于等于p的交易总量，选择较小者作为最终成交量。最好遍历每条买单，找出最大的成交量，记录其交易价格作为定价，若存在多个最大成交量，选择交易价格最大的。
 
-    定义结构体类型Record表示每条记录的有效性，类型，交易价格，最终成交量。</code></pre><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> Record <span class="token punctuation">{</span>
+    定义结构体类型Record表示每条记录的有效性，类型，交易价格，最终成交量。</code></pre><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">struct</span> Record <span class="token punctuation">{</span>
     <span class="token keyword">int</span> valid<span class="token punctuation">,</span> type<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 是否有效：0无效，1有效；类型，0：buy， 1：sell</span>
     <span class="token keyword">double</span> p<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 价格</span>
     <span class="token keyword">long</span> <span class="token keyword">long</span> s<span class="token punctuation">,</span> bNum<span class="token punctuation">,</span> sNum<span class="token punctuation">,</span> minNum<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 股数，以p为开盘价的购买股数、售卖股数、买卖最小股数</span>
     <span class="token function">Record</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>valid <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> bNum <span class="token operator">=</span> sNum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token punctuation">}</span> <span class="token comment" spellcheck="true">// 默认构造初始化</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-vector<span class="token operator">&lt;</span>Record<span class="token operator">></span> a<span class="token punctuation">,</span> buy<span class="token punctuation">,</span> sell<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 临时存放、有效买、卖记录</span></code></pre>
+vector<span class="token operator">&lt;</span>Record<span class="token operator">></span> a<span class="token punctuation">,</span> buy<span class="token punctuation">,</span> sell<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 临时存放、有效买、卖记录</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="2-注意点-12"><a href="#2-注意点-12" class="headerlink" title="2  注意点"></a>2  注意点</h3><ul>
 <li>累计交易量过程可能超出int范围，因此使用longlong类型。</li>
 <li>cancel i是令第i行记录无效，不是第i条有效记录无效。</li>
 </ul>
-<h3 id="3-C-（数学递推-sort）"><a href="#3-C-（数学递推-sort）" class="headerlink" title="3  C++（数学递推+sort）"></a>3  C++（数学递推+sort）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<h3 id="3-C-（数学递推-sort）"><a href="#3-C-（数学递推-sort）" class="headerlink" title="3  C++（数学递推+sort）"></a>3  C++（数学递推+sort）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-07 10:31:08
  * @LastEditTime: 2019-09-07 21:01:00
@@ -2509,25 +2460,25 @@ vector<span class="token operator">&lt;</span>Record<span class="token operator"
     <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%.2lf %lld\n"</span><span class="token punctuation">,</span> ansP<span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201409-3-字符串匹配"><a href="#201409-3-字符串匹配" class="headerlink" title="201409-3 字符串匹配"></a><a href="http://118.190.20.162/view.page?gpid=T14" target="_blank" rel="noopener">201409-3 字符串匹配</a></h2><h3 id="1-思路分析-12"><a href="#1-思路分析-12" class="headerlink" title="1  思路分析"></a>1  思路分析</h3><pre><code>    简单子串匹配问题，可直接用**find函数**或**正则表达式的匹配或搜索**实现。具体介绍如下：</code></pre><p>（1）<strong>find实现</strong>：若是大小写敏感，统一转换为小写，可用<code>transform</code>实现。</p>
 <p>（2）<strong>正则表达式实现</strong>：全文匹配或子串搜索</p>
 <ul>
 <li><strong>全文匹配regex_match</strong>：关键代码如下，其中<code>[:alpha:]</code>表示所有字母，等价于<code>[a-zA-Z]</code>，因此<code>[[:alpha:]]*</code>表示匹配0个或多个字母。其中<code>regex::icase</code>表示大小写不敏感。</li>
 </ul>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_match</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">,</span> regex<span class="token operator">::</span>icase<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_match</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_match</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">,</span> regex<span class="token operator">::</span>icase<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_match</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <ul>
 <li><strong>子串搜索regex_search</strong>：由于子串搜索是全文匹配的一个部分，因此，可直接将上文的<code>regex_match</code>直接替换为<code>regex_serach</code>，结果如下：</li>
 </ul>
-<pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">,</span> regex<span class="token operator">::</span>icase<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<pre><code>    不过这样效率太低，可以直接利用子串搜索的特性，它可以直接搜索指定格式的子串，且搜索到第一个立刻返回，因此效率高于全文匹配。具体如下：</code></pre><pre class=" language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> regex<span class="token operator">::</span>icase<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span>dist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">,</span> regex<span class="token operator">::</span>icase<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span><span class="token string">"[[:alpha:]]*"</span><span class="token operator">+</span>dist<span class="token operator">+</span><span class="token string">"[[:alpha:]]*"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code>    不过这样效率太低，可以直接利用子串搜索的特性，它可以直接搜索指定格式的子串，且搜索到第一个立刻返回，因此效率高于全文匹配。具体如下：</code></pre><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span>dist<span class="token punctuation">,</span> regex<span class="token operator">::</span>icase<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span><span class="token punctuation">(</span>flag <span class="token operator">==</span> <span class="token number">1</span> <span class="token operator">&amp;&amp;</span> <span class="token function">regex_search</span><span class="token punctuation">(</span>s<span class="token punctuation">,</span> <span class="token function">regex</span><span class="token punctuation">(</span>dist<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token function">puts</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <h3 id="2-注意点-13"><a href="#2-注意点-13" class="headerlink" title="2  注意点"></a>2  注意点</h3><ul>
 <li>regex_match意为全文匹配，因此搜索子串时必须把正则表达式写全；regex_search意为子串搜索，因此搜索子串时正常只写子串格式即可。</li>
 </ul>
-<h3 id="3-AC代码-1"><a href="#3-AC代码-1" class="headerlink" title="3  AC代码"></a>3  AC代码</h3><h4 id="3-1-C-（find函数）"><a href="#3-1-C-（find函数）" class="headerlink" title="3.1  C++（find函数）"></a>3.1  C++（find函数）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<h3 id="3-AC代码-1"><a href="#3-AC代码-1" class="headerlink" title="3  AC代码"></a>3  AC代码</h3><h4 id="3-1-C-（find函数）"><a href="#3-1-C-（find函数）" class="headerlink" title="3.1  C++（find函数）"></a>3.1  C++（find函数）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-07 21:37:04
  * @LastEditTime: 2019-09-07 21:59:53
@@ -2547,8 +2498,8 @@ vector<span class="token operator">&lt;</span>Record<span class="token operator"
         <span class="token keyword">if</span><span class="token punctuation">(</span>tmp<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>dist<span class="token punctuation">)</span> <span class="token operator">!=</span> string<span class="token operator">::</span>npos<span class="token punctuation">)</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%s\n"</span><span class="token punctuation">,</span> s<span class="token punctuation">.</span><span class="token function">c_str</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h4 id="3-2-C-（正则表达式）"><a href="#3-2-C-（正则表达式）" class="headerlink" title="3.2  C++（正则表达式）"></a>3.2  C++（正则表达式）</h4><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-2-C-（正则表达式）"><a href="#3-2-C-（正则表达式）" class="headerlink" title="3.2  C++（正则表达式）"></a>3.2  C++（正则表达式）</h4><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-07 22:03:51
  * @LastEditTime: 2019-09-07 22:56:28
@@ -2572,14 +2523,14 @@ vector<span class="token operator">&lt;</span>Record<span class="token operator"
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// [a-zA-Z]*Hello[a-zA-Z]*</span></code></pre>
+<span class="token comment" spellcheck="true">// [a-zA-Z]*Hello[a-zA-Z]*</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="201403-3-命令行选项"><a href="#201403-3-命令行选项" class="headerlink" title="201403-3 命令行选项"></a><a href="http://118.190.20.162/view.page?gpid=T8" target="_blank" rel="noopener">201403-3 命令行选项</a></h2><h3 id="1-思路分析-13"><a href="#1-思路分析-13" class="headerlink" title="1  思路分析"></a>1  思路分析</h3><pre><code>    步骤 1：定义`unordered_map&lt;string, *int*&gt; opt`表示接受选项到带参数与否的映射 ，其中0：不带，1：带。`map&lt;string, string&gt; ans`存放选项和参数，其中令参数为空字符串表示无参数，由于map按key的字典序自动升序，因此最后直接输出即可。
 
     步骤 2：用`stringstream`分割字符串，来进行匹配，一遇到不匹配的子串，立刻退出。</code></pre><h3 id="2-注意点-14"><a href="#2-注意点-14" class="headerlink" title="2  注意点"></a>2  注意点</h3><ul>
 <li>参数和选项一样是可以带<code>-</code>的。</li>
 <li><code>getline(input,tmp,&#39; &#39;)</code>等价于<code>input&gt;&gt;tmp</code>，都是根据空格来切割。</li>
 </ul>
-<h3 id="3-C-（unordered-map-map-stringstream）"><a href="#3-C-（unordered-map-map-stringstream）" class="headerlink" title="3  C++（unordered_map+map+stringstream）"></a>3  C++（unordered_map+map+stringstream）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<h3 id="3-C-（unordered-map-map-stringstream）"><a href="#3-C-（unordered-map-map-stringstream）" class="headerlink" title="3  C++（unordered_map+map+stringstream）"></a>3  C++（unordered_map+map+stringstream）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-08 09:23:46
  * @LastEditTime: 2019-09-08 10:27:46
@@ -2627,8 +2578,8 @@ unordered_map<span class="token operator">&lt;</span>string<span class="token pu
         <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
-<h2 id="201312-3-最大的矩形"><a href="#201312-3-最大的矩形" class="headerlink" title="201312-3 最大的矩形"></a><a href="http://118.190.20.162/view.page?gpid=T3" target="_blank" rel="noopener">201312-3 最大的矩形</a></h2><h3 id="1-思路分析-14"><a href="#1-思路分析-14" class="headerlink" title="1 思路分析"></a>1 思路分析</h3><pre><code>    暴力枚举：假设最大的高度为MAX，枚举[1,MAX]的高度h，从[1,n]个矩形中依次枚举，累加高度大于等于h且相邻的矩形的个数sum，其面积为h*sum。若存在相邻的矩形高度小于h，表示存在间断点，sum清零。</code></pre><h3 id="2-C-（暴力枚举）"><a href="#2-C-（暴力枚举）" class="headerlink" title="2  C++（暴力枚举）"></a>2  C++（暴力枚举）</h3><pre class=" language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="201312-3-最大的矩形"><a href="#201312-3-最大的矩形" class="headerlink" title="201312-3 最大的矩形"></a><a href="http://118.190.20.162/view.page?gpid=T3" target="_blank" rel="noopener">201312-3 最大的矩形</a></h2><h3 id="1-思路分析-14"><a href="#1-思路分析-14" class="headerlink" title="1 思路分析"></a>1 思路分析</h3><pre><code>    暴力枚举：假设最大的高度为MAX，枚举[1,MAX]的高度h，从[1,n]个矩形中依次枚举，累加高度大于等于h且相邻的矩形的个数sum，其面积为h*sum。若存在相邻的矩形高度小于h，表示存在间断点，sum清零。</code></pre><h3 id="2-C-（暴力枚举）"><a href="#2-C-（暴力枚举）" class="headerlink" title="2  C++（暴力枚举）"></a>2  C++（暴力枚举）</h3><pre class="line-numbers language-cpp"><code class="language-cpp"><span class="token comment" spellcheck="true">/*
  * @Author: wuyangjun
  * @Date: 2019-09-08 11:01:32
  * @LastEditTime: 2019-09-08 11:25:37
@@ -2655,7 +2606,7 @@ unordered_map<span class="token operator">&lt;</span>string<span class="token pu
     <span class="token punctuation">}</span>
     <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%d\n"</span><span class="token punctuation">,</span> ans<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="题型分类"><a href="#题型分类" class="headerlink" title="题型分类"></a>题型分类</h3><pre><code>    从19年开始倒着做题，难度确实是逐年降低。第三题主要分为五种类型题目，根据出现频率从高到低排列：</code></pre><ul>
 <li>字符串处理</li>
 <li>图像处理</li>
@@ -2672,635 +2623,638 @@ unordered_map<span class="token operator">&lt;</span>string<span class="token pu
 <h3 id="需求获取（关键）"><a href="#需求获取（关键）" class="headerlink" title="需求获取（关键）"></a>需求获取（关键）</h3><pre><code>    根据以上分析可知，题目类型较固定，仅五种，主要是字符串处理（17占9）；技术比较单一，仅4类。各类题型及其相应的解决技术是容易掌握的，关键在于最初的审题，即获取需求。若是一开始需求理解错误或理解不全，将会导致0分或无法满分，因此，需求获取至关重要。
 
     如何获取正确且全面的需求？这个需要积累与细心，通过软件测试来辅助验证需求理解是否正确。</code></pre>
-            </div>
-            <hr>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://wyjoutstanding.github.io" rel="external nofollow noreferrer">吴扬俊</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://wyjoutstanding.github.io/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/">http://wyjoutstanding.github.io/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="http://wyjoutstanding.github.io" target="_blank">吴扬俊</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            
-                                <a href="/tags/CSP/">
-                                    <span class="chip bg-color">CSP</span>
-                                </a>
-                            
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-
-<div id="article-share">
-    
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
-</div>
-
-                </div>
-            </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
-            
-        </div>
-    </div>
-
-    
-        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
-<link rel="stylesheet" href="/css/my-gitalk.css">
-
-<div class="card gitalk-card" data-aos="fade-up">
-    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; left: 20px; top: 15px; padding-bottom: 5px;">
-        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
-    </div>
-    <div id="gitalk-container" class="card-content"></div>
-</div>
-
-<script src="/libs/gitalk/gitalk.min.js"></script>
-<script>
-    let gitalk = new Gitalk({
-        clientID: '04ea2f535465a98b7ef7',
-        clientSecret: '310d01ed7d7b51fc0c69121a5c0b72f8fcb1d9bd',
-        repo: 'wyjoutstanding.github.io',
-        owner: 'wyjoutstanding',
-        admin: ["wyjoutstanding"],
-        id: '2019-08-27T21-05-00',
-        distractionFreeMode: false  // Facebook-like distraction free mode
-    });
-
-    gitalk.render('gitalk-container');
-</script>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2019/09/09/csp-li-nian-di-4-ti-ti-jie-bao-gao-2019/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="CSP历年第4题题解报告-2019">
-                        
-                        <span class="card-title">CSP历年第4题题解报告-2019</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            对csp历年第4题进行详细分析，最后总结归纳出相应解题技巧
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2019-09-09
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
+          
+            <div class='article_footer'>
+              
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CSP/">
-                        <span class="chip bg-color">CSP</span>
-                    </a>
-                    
-                </div>
-                
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+
+
+  
+
+  
+    
+    
+
+<section class="widget copyright  desktop mobile">
+  <div class='content'>
+    
+      <blockquote>
+        
+          
+            <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+          
+        
+          
+            <p>本文永久链接是：<a href=http://wyjoutstanding.github.io/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/>http://wyjoutstanding.github.io/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/</a></p>
+          
+        
+      </blockquote>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget qrcode  desktop mobile">
+  
+
+  <div class='content article-entry'>
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+      
+        <div class='fancybox'><img src='https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/qrcode/wiki_volantis.png'
+        
+          height='64px'
+        ></div>
+      
+    
+  </div>
+</section>
+
+  
+
+
+              
             </div>
+          
         </div>
         
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
         
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/03/05/typora-hexo-github-page-images/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="完美解决typora + hexo + github page个人网站的图片显示">
-                        
-                        <span class="card-title">完美解决typora + hexo + github page个人网站的图片显示</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            搭建及基本命令参考github+hexo个人网站搭建
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2019-12-16T21:05:42+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2019年12月16日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CSP/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CSP</p></a></div>
+
+
+        
+      
+        
+          
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://wyjoutstanding.github.io/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/&title=CSP历年第3题题解报告-2019 - wyjoutstanding&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qq.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://wyjoutstanding.github.io/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/&title=CSP历年第3题题解报告-2019 - wyjoutstanding&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/qzone.png">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://wyjoutstanding.github.io/2019/08/27/csp-li-nian-di-3-ti-ti-jie-bao-gao-2019/&title=CSP历年第3题题解报告-2019 - wyjoutstanding&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/logo/128/weibo.png">
+          
+        </a>
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2019/09/09/csp-li-nian-di-4-ti-ti-jie-bao-gao-2019/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>CSP历年第4题题解报告-2019</p>
+                <p class='content'>CSP历年第4题题解报告-2019作者：wuyangjun时间：2019/9/9主题：图论
+201812-4 数据中心1  思路分析​        求解给定图的最小生成树的最大边。可用prim...</p>
+              </a>
+            
+            
+              <a class='next' href='/2019/03/05/typora-hexo-github-page-images/'>
+                <p class='title'>完美解决typora + hexo + github page个人网站的图片显示<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <p class='content'>搭建及基本命令参考github+hexo个人网站搭建
 先说说为什么选取这三个作为组合
 
 三者完全免费，而且空间无限制，对于我这贫民可是有着巨大吸引力
-typora编辑起来极其顺手且美观，GitHub提供免费服务器，hexo一键部署网页，大大
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2019-03-05
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/前端/" class="post-category">
-                                    前端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/web应用/">
-                        <span class="chip bg-color">web应用</span>
-                    </a>
-                    
-                    <a href="/tags/博客搭建/">
-                        <span class="chip bg-color">博客搭建</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
+typora编辑起来极其顺手且美观，GitH...</p>
+              </a>
+            
+          </div>
         
-    </div>
-</article>
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'CSP历年第3题题解报告-2019',
+      tools: true
+    }
+  </script>
+
 
 </div>
+<aside class='l_side'>
+  
+  
 
-
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
+  
     
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+    
 
 
-<!-- 代码块收缩 -->
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
 
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
 
-
-<!-- 代码块折行 -->
-
-<style type="text/css">
-code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
-</style>
-
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#作者：wuyangjun"><span class="toc-text">作者：wuyangjun</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#时间：2019-8-27"><span class="toc-text">时间：2019&#x2F;8&#x2F;27~</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#主题：大模拟"><span class="toc-text">主题：大模拟</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201909-3-字符画"><span class="toc-text">201909-3 字符画</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析"><span class="toc-text">1 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试用例"><span class="toc-text">3 测试用例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-C-（字符串处理-进制转换-二维数组分块遍历）"><span class="toc-text">4 C++（字符串处理+进制转换+二维数组分块遍历）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201903-3-损坏的RAID5"><span class="toc-text">201903-3 损坏的RAID5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路分析"><span class="toc-text">思路分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读题"><span class="toc-text">读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#模拟-找规律"><span class="toc-text">模拟&#x2F;找规律</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#超时处理"><span class="toc-text">超时处理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试样例"><span class="toc-text">测试样例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#样例1"><span class="toc-text">样例1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#样例2"><span class="toc-text">样例2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AC代码"><span class="toc-text">AC代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#C-模拟"><span class="toc-text">C++(模拟)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#C-找规律"><span class="toc-text">C++(找规律)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小结"><span class="toc-text">小结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201812-3-CIDR合并"><span class="toc-text">201812-3 CIDR合并</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-1"><span class="toc-text">1 思路分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-读题"><span class="toc-text">1.1 读题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-字符串处理"><span class="toc-text">1.2 字符串处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-1-数据结构"><span class="toc-text">1.2.1 数据结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-2-2-IP分割"><span class="toc-text">1.2.2 IP分割</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-匹配集计算"><span class="toc-text">1.3 匹配集计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-4-模拟算法"><span class="toc-text">1.4 模拟算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-1-排序"><span class="toc-text">1.4.1 排序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-2-合并具有包含关系的集合"><span class="toc-text">1.4.2 合并具有包含关系的集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-4-3-合并同级集合"><span class="toc-text">1.4.3 合并同级集合</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-1"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试样例编写"><span class="toc-text">3 测试样例编写</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-边界测试"><span class="toc-text">3.1 边界测试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-排序-合并-去重测试"><span class="toc-text">3.2 排序+合并+去重测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-C-（字符串处理-链表-集合-位运算）"><span class="toc-text">4 C++（字符串处理+链表+集合+位运算）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201809-3-元素选择器"><span class="toc-text">201809-3 元素选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-2"><span class="toc-text">1 思路分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-字符串处理"><span class="toc-text">1.1 字符串处理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-1-结构化文档"><span class="toc-text">1.1.1 结构化文档</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-2-查询选择器"><span class="toc-text">1.1.2 查询选择器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-建立普通树"><span class="toc-text">1.2 建立普通树</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-查询方式"><span class="toc-text">1.3 查询方式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-2"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试样例"><span class="toc-text">3 测试样例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-C-（树-并查集-字符串处理-树遍历）"><span class="toc-text">4 C++（树&#x2F;并查集+字符串处理+树遍历）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-总结"><span class="toc-text">5 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201803-3-URL映射"><span class="toc-text">201803-3 URL映射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-3"><span class="toc-text">1 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-3"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试样例-1"><span class="toc-text">3 测试样例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-C-（正则表达式）"><span class="toc-text">4 C++（正则表达式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-参考"><span class="toc-text">5 参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201712-3-Crontab"><span class="toc-text">201712-3 Crontab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-4"><span class="toc-text">1 思路分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-数据结构"><span class="toc-text">1.1 数据结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-当前日期是星期几？"><span class="toc-text">1.2 当前日期是星期几？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-4"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试样例-2"><span class="toc-text">3 测试样例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-C-（字符串-日期-构造法）"><span class="toc-text">4 C++（字符串+日期+构造法）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-参考-1"><span class="toc-text">5 参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-总结"><span class="toc-text">6 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201709-3-JSON查询"><span class="toc-text">201709-3 JSON查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-5"><span class="toc-text">1 思路分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-建树"><span class="toc-text">1.1 建树</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-1-去空格"><span class="toc-text">1.1.1 去空格</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1-2-遍历建树"><span class="toc-text">1.1.2 遍历建树</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-5"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试样例-3"><span class="toc-text">3 测试样例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-C-（栈模拟建树-查询-字符串处理）"><span class="toc-text">4 C++（栈模拟建树+查询+字符串处理）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201703-3-Markdown"><span class="toc-text">201703-3 Markdown</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-6"><span class="toc-text">1 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-6"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-测试样例-4"><span class="toc-text">3 测试样例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-C-（正则表达式）-1"><span class="toc-text">4 C++（正则表达式）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201612-3-权限查询"><span class="toc-text">201612-3 权限查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-7"><span class="toc-text">1 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-7"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AC代码"><span class="toc-text">3 AC代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-C-（优化版-STL-unordered-map）"><span class="toc-text">3.1 C++（优化版 STL:unordered_map）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-C-（原始版）"><span class="toc-text">3.2 C++（原始版）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201609-3-炉石传说"><span class="toc-text">201609-3 炉石传说</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-8"><span class="toc-text">1 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-8"><span class="toc-text">2 注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-C-vector模拟"><span class="toc-text">3 C++(vector模拟)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结"><span class="toc-text">4 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201604-3-路径解析"><span class="toc-text">201604-3 路径解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路"><span class="toc-text">1  思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-9"><span class="toc-text">2  注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-代码"><span class="toc-text">3  代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-C-（vector模拟栈，100分）"><span class="toc-text">3.1 C++（vector模拟栈，100分）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-C-（正则表达式，90分）"><span class="toc-text">3.2 C++（正则表达式，90分）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-总结-1"><span class="toc-text">4 总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201512-3-画图"><span class="toc-text">201512-3 画图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路-1"><span class="toc-text">1  思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-10"><span class="toc-text">2  注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-C-（矩阵模拟-BFS）"><span class="toc-text">3  C++（矩阵模拟+BFS）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201509-3-模板生成系统"><span class="toc-text">201509-3 模板生成系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-9"><span class="toc-text">1  思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-三种思路AC代码"><span class="toc-text">2  三种思路AC代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-C-（正则表达式添加字符分割）"><span class="toc-text">2.1  C++（正则表达式添加字符分割）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-C-（正则表达式搜索）"><span class="toc-text">2.2  C++（正则表达式搜索）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-C-（单纯find函数）"><span class="toc-text">2.3  C++（单纯find函数）</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-总结"><span class="toc-text">3  总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201503-3-节日"><span class="toc-text">201503-3 节日</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-10"><span class="toc-text">1  思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-11"><span class="toc-text">2  注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-C-（日期处理模板）"><span class="toc-text">3  C++（日期处理模板）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201412-3-集合竞价（好题）"><span class="toc-text">201412-3 集合竞价（好题）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-11"><span class="toc-text">1  思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-12"><span class="toc-text">2  注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-C-（数学递推-sort）"><span class="toc-text">3  C++（数学递推+sort）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201409-3-字符串匹配"><span class="toc-text">201409-3 字符串匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-12"><span class="toc-text">1  思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-13"><span class="toc-text">2  注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AC代码-1"><span class="toc-text">3  AC代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-C-（find函数）"><span class="toc-text">3.1  C++（find函数）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-C-（正则表达式）"><span class="toc-text">3.2  C++（正则表达式）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201403-3-命令行选项"><span class="toc-text">201403-3 命令行选项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-13"><span class="toc-text">1  思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-注意点-14"><span class="toc-text">2  注意点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-C-（unordered-map-map-stringstream）"><span class="toc-text">3  C++（unordered_map+map+stringstream）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#201312-3-最大的矩形"><span class="toc-text">201312-3 最大的矩形</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-思路分析-14"><span class="toc-text">1 思路分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-C-（暴力枚举）"><span class="toc-text">2  C++（暴力枚举）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#题型分类"><span class="toc-text">题型分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技术归纳"><span class="toc-text">技术归纳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#需求获取（关键）"><span class="toc-text">需求获取（关键）</span></a></li></ol>
     </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+  
+  <footer class="clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
         </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+              <a href="/atom.xml"
+                class="social fas fa-rss flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="mailto:me@xaoxuu.com"
+                class="social fas fa-envelope flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://github.com/xaoxuu"
+                class="social fab fa-github flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+            
+              <a href="https://music.163.com/#/user/home?id=63035382"
+                class="social fas fa-headphones-alt flat-btn"
+                target="_blank"
+                rel="external nofollow noopener noreferrer">
+              </a>
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://volantis.js.org/" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="https://xaoxuu.com" target="_blank" rel="noopener">Copyright © 2017-2020 Mr. X</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+<script>setLoadingBarProgress(80);</script>
+
+
+      <script>setLoadingBarProgress(60);</script>
     </div>
-</div>
-
-<!-- TOC 悬浮按钮. -->
-
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.4/dist/jquery.min.js"></script>
 
 
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
 
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
 
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
 
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
 
-        
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
-
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
-        
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      ScrollReveal().reveal('.l_main .reveal', {
+        distance: '8px',
+        duration: '800',
+        interval: '100',
+        scale: '1'
+      });
     });
-</script>
+  </script>
 
+
+  
+<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
+
+  <script type="text/javascript">
+    $(function() {
+      Waves.attach('.flat-btn', ['waves-button']);
+      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+      Waves.attach('.flat-box', ['waves-block']);
+      Waves.attach('.float-box', ['waves-block', 'waves-float']);
+      Waves.attach('.waves-image');
+      Waves.init();
+    });
+  </script>
+
+
+  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
+
+
+
+  
+  
+  
     
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
 
-</main>
-
-
-
-    <footer class="page-footer bg-color">
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            <span id="year">2019</span>
-            <a href="http://wyjoutstanding.github.io" target="_blank">吴扬俊</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span class="white-color">45.7k</span>&nbsp;字
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv" class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv" class="white-color"></span>&nbsp;人
-            </span>
-            
-            <br>
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/wyjoutstanding/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:1140132928@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1140132928" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1140132928" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字" class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script src="/js/search.js"></script>
-<script type="text/javascript">
-$(function () {
-    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
-});
-</script>
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-
-
-    <!-- Baidu Analytics -->
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
         }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
+        if ('.cover') {
+          $('.cover').backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "20000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+  
+
+
+
+
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/valine@1.4/dist/Valine.min.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick','mail','link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item){
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+  var valine = new Valine();
+  function emoji(path, idx, ext) {
+      return path + "/" + path + "-" + idx + "." + ext;
+  }
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+  valine.init({
+    el: '#valine_container',
+    meta: meta,
+    
+    appId: "dogUA2FSKGTo029M1SEwGROT-MdYXbMMI",
+    appKey: "u0NdtQ8nvHoMdJPSYqm1LRxE",
+    placeholder: "快来评论吧~",
+    pageSize:'10',
+    avatar:'robohash',
+    lang:'zh-cn',
+    visitor: 'true',
+    highlight: 'true',
+    mathJax: 'false',
+    enableQQ: 'true',
+    requiredFields: requiredFields,
+    emojiCDN: 'https://cdn.jsdelivr.net/gh/xaoxuu/cdn-assets/emoji/valine/',
+    emojiMaps: emojiMaps
+  })
+  </script>
+
+
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2.6.4/js/search.js"></script>
+
+
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
+
+
+
+
+  
+    
+<script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/highlight.min.js"></script>
+
+    <script>hljs.initHighlightingOnLoad();</script>
+  
+
+
+
+<!-- 复制 -->
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-check-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-check-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('fa-copy');
+        $icon.addClass('fa-times-circle');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('fa-times-circle');
+          $icon.addClass('fa-copy');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
 
-    
 
-    
 
-    
+<!-- fancybox -->
 
-    
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("div.fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
 
-    
-    
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
 
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
 </body>
-
 </html>
